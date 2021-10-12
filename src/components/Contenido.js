@@ -13,7 +13,7 @@ const Contenido = () => {
             <br/>
             <p style={{fontSize: "1.25rem"}}><strong style={{fontSize: "1.5rem", fontWeight: 500}}>Ñ</strong> es un lenguaje de programación de <strong style={{fontWeight: 500}}>código abierto</strong>, con sintaxis similar a C y gramática en español aprovechando todo el potencial de Unicode y UTF-8. Es un lenguaje <strong style={{fontWeight: 500}}>compilado a ejecutables nativos optimizados</strong>, aprovechando la potencia del <strong style={{fontWeight: 500}}>proyecto LLVM</strong>.</p>
             <br />
-            <Boton texto="¡Pruébalo!" />
+            <Boton texto="¡Próximamente!" />
             <br/>
             <br/>
             <br/>
