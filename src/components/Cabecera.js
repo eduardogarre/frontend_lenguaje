@@ -1,12 +1,37 @@
 import PropTypes from 'prop-types'
 import Boton from './Boton'
+import logo from '../img/logo21.png'
 
 const Cabecera = ({titulo}) => {
+    const reaccionaClick = (e) => {
+        console.log(e)
+    }
+
     return (
-        <header className="cabecera">
-            <h1>{titulo}</h1>
-            <Boton color="green" texto="hola" />
-        </header>
+        <nav className="cabecera navbar fixed-top navbar-expand-lg navbar-light"  style={{backgroundColor: "#fff"}}>
+            <div className="container-fluid">
+                <a class="marca navbar-brand" href="#">
+                    Lenguaje &nbsp;
+                    <img src={logo} alt="" style={{width:"2.5rem", height:"2.5rem"}} class="d-inline-block align-text-bottom" />
+                </a>
+                <div className="" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                        <a className="nav-link" aria-current="page" href="#">Descarga</a>
+                        </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Aprende</a>
+                        </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Documentación</a>
+                        </li>
+                        <li className="nav-item">
+                        <a className="nav-link" href="#">Proyecto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     )
 }
 
