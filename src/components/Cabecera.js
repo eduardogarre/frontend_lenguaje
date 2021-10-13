@@ -12,7 +12,7 @@ const Cabecera = ({titulo}) => {
             <div className="container-fluid">
                 <a class="marca navbar-brand" href="#" style={{fontWeight: 300}}>
                     &nbsp;Lenguaje&nbsp;
-                    <img src={logo} alt="" style={{width:"2.5rem", height:"2.5rem"}} class="d-inline-block align-text-bottom" />
+                    <img src={logo} alt="" style={{width:"2.7rem", height:"2.7rem"}} class="d-inline-block align-text-bottom" />
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
