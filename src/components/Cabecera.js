@@ -11,7 +11,7 @@ const Cabecera = ({titulo}) => {
         <nav className="cabecera cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom">
             <div className="container-fluid">
                 <a class="marca navbar-brand" href="#" style={{fontWeight: 300}}>
-                    &nbsp;Lenguaje&nbsp;&nbsp;
+                    &nbsp;Lenguaje&nbsp;
                     <img src={logo} alt="" style={{width:"2.5rem", height:"2.5rem"}} class="d-inline-block align-text-bottom" />
                 </a>
 
