@@ -8,7 +8,7 @@ const Cabecera = ({titulo}) => {
     }
 
     return (
-        <nav className="cabecera cristal bg-transparent navbar fixed-top navbar-expand-lg navbar-light border-bottom">
+        <nav className="cabecera cristal navbar fixed-top navbar-expand-lg navbar-light border-bottom">
             <div className="container-fluid">
                 <a class="marca navbar-brand" href="#" style={{fontWeight: 300}}>
                     &nbsp;Lenguaje&nbsp;&nbsp;
