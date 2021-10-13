@@ -8,28 +8,30 @@ const Cabecera = ({titulo}) => {
     }
 
     return (
-        <nav className="cabecera cristal navbar fixed-top navbar-expand-lg navbar-light border-bottom">
+        <nav className="cabecera cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom">
             <div className="container-fluid">
                 <a class="marca navbar-brand" href="#" style={{fontWeight: 300}}>
                     &nbsp;Lenguaje&nbsp;&nbsp;
                     <img src={logo} alt="" style={{width:"2.5rem", height:"2.5rem"}} class="d-inline-block align-text-bottom" />
                 </a>
-                <div className="" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="#">Descarga</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Aprende</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Documentación</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Proyecto</a>
-                        </li>
-                    </ul>
-                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul id="barraNavEnlaces" className="navbar-nav mr-auto collapse navbar-collapse justify-content-end">
+                    <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="#">Descarga</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" href="#">Aprende</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" href="#">Documentación</a>
+                    </li>
+                    <li className="nav-item">
+                    <a className="nav-link" href="#">Proyecto</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     )
