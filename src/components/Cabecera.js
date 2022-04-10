@@ -10,13 +10,13 @@ const Cabecera = ({titulo}) => {
     return (
         <nav className="cabecera cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom">
             <div className="container-fluid">
-                <a class="marca navbar-brand" href="#" style={{fontWeight: 300}}>
+                <a className="marca navbar-brand" href="#" style={{fontWeight: 300}}>
                     &nbsp;Lenguaje&nbsp;
-                    <img src={logo} alt="" style={{width:"2.7rem", height:"2.7rem"}} class="d-inline-block align-text-bottom" />
+                    <img src={logo} alt="" style={{width:"2.7rem", height:"2.7rem"}} className="d-inline-block align-text-bottom" />
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <ul id="barraNavEnlaces" className="navbar-nav mr-auto collapse navbar-collapse justify-content-end">
                     <li className="nav-item">

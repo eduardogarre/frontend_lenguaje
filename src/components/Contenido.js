@@ -4,8 +4,8 @@ import código from '../img/código_hola.png'
 
 const Contenido = () => {
     return (
-        <div class="container mw-100 text-center" style={{width: "55rem"}}>
-            <img src={logo} alt="" style={{width:"7rem", height:"7rem"}} class="d-inline-block align-text-bottom" />
+        <div className="container mw-100 text-center" style={{width: "55rem"}}>
+            <img src={logo} alt="" style={{width:"7rem", height:"7rem"}} className="d-inline-block align-text-bottom" />
             <br/>
             <br/>
             <h3>Tu lenguaje de programación en español</h3>
@@ -20,7 +20,7 @@ const Contenido = () => {
             <br/>
             <br/>
             <br/>
-            <img src={código} alt="" style={{width:"55rem"}} class="d-inline-block align-text-bottom" />
+            <img src={código} alt="" style={{width:"55rem"}} className="d-inline-block align-text-bottom" />
             <br/>
         </div>
     )
