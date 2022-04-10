@@ -1,12 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import Boton from './Boton'
 import logo from '../img/logo21.png'
 
-const Cabecera = ({titulo}) => {
-    const reaccionaClick = (e) => {
-        console.log(e)
-    }
+const Cabecera = () => {
 
     const [menuColapsado, setMenuColapsado] = useState(true)
 
@@ -54,10 +50,5 @@ Cabecera.defaultProps = {
 Cabecera.defaultProps = {
     titulo: PropTypes.string.isRequired
 }
-
-//const estiloCabecera = {
-//    color: "red",
-//    backgroundColor: "black"
-//}
 
 export default Cabecera
