@@ -37,15 +37,6 @@ body {
     font-size: 2rem;
   }
 
-  .cabecera {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom-width: 5px;
-    border-bottom-color: black;
-  }
-
   .btn {
     display: inline-block;
     background: #000;
