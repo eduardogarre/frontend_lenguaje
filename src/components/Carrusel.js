@@ -3,7 +3,7 @@ import Código from './Código'
 const Carrusel = () => {
 
     return (
-        <div id="carruselCódigo" className="carousel slide carousel-dark shadow border border-light rounded-3" data-bs-ride="carousel" style={{ height: "21.5em", width: "35em" }}>
+        <div id="carruselCódigo" className="carousel slide carousel-dark shadow border border-light rounded-3 fs-5" data-bs-ride="carousel" style={{ height: "21.5em", width: "35em" }}>
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carruselCódigo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carruselCódigo" data-bs-slide-to="1" aria-label="Slide 2"></button>
