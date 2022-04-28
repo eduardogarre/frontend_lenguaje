@@ -13,12 +13,12 @@ const Carrusel = () => {
                     <Código código={`// ¡Hola, Mundo!
 
 // Función de la biblioteca estándar
-externo ent escribeln(nat8* _texto);
+externo ent escribe(nat8* texto);
 
 // Inicio del programa
 público ent inicia()
 {
-  escribeln("¡Hola, Mundo!\\n");
+  escribe("¡Hola, Mundo!\\n");
 
   devuelve 0;
 }`} />
