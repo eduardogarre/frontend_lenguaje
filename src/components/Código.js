@@ -2,8 +2,8 @@ const Código = ({ código }) => {
 
     return (
         <div>
-            <pre className="text-start" style={{height: "24em"}}>
-                <code className="h-100 w-100">
+            <pre className="text-start h-100">
+                <code className="h-100 w-100" style={{fontFamily: "Inconsolata"}}>
                     {código}
                 </code>
             </pre>
