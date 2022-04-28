@@ -14,8 +14,8 @@ const Cabecera = () => {
     }
 
     return (
-        <nav id="cabecera" className="cristal navbar navbar-expand-md text-dark fixed-top navbar-light border-bottom">
-            <a className="marca navbar-brand" href="#" style={{fontWeight: 300}}>
+        <nav id="cabecera" className="cristal navbar navbar-expand-md text-dark fixed-top navbar-light border-bottom px-3">
+            <a className="marca navbar-brand p-0" href="#" style={{fontWeight: 300}}>
                 &nbsp;Lenguaje&nbsp;
                 <img src={logo} alt="" style={{width:"2.7rem", height:"2.7rem"}} className="d-inline-block align-text-bottom" />
             </a>
