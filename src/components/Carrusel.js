@@ -25,7 +25,6 @@ público ent inicia()
                 </div>
                 <div className="carousel-item">
                     <Código código={`// Factorial de un número natural
-
 nat factorial(nat x)
 {
   si (x == 1)
