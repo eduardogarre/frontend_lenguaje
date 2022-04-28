@@ -1,6 +1,6 @@
 import Boton from "./Boton"
 import logo from '../img/logo22.png'
-import código from '../img/código_hola.png'
+import Carrusel from "./Carrusel"
 
 const Contenido = () => {
     return (
@@ -18,9 +18,9 @@ const Contenido = () => {
             <br/>
             <br/>
             <br/>
+            <Carrusel />
             <br/>
             <br/>
-            <img src={código} alt="" style={{width:"55rem"}} className="d-inline-block align-text-bottom" />
             <br/>
         </div>
     )
