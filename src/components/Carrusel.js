@@ -10,8 +10,12 @@ const Carrusel = () => {
             </div>
             <div className="carousel-inner p-3 pt-2">
                 <div className="carousel-item active">
-                    <Código código={`externo ent escribeln(nat8* _texto);
+                    <Código código={`// ¡Hola, Mundo!
 
+// Función de la biblioteca estándar
+externo ent escribeln(nat8* _texto);
+
+// Inicio del programa
 público ent inicia()
 {
   escribeln("¡Hola, Mundo!\\n");
@@ -20,7 +24,9 @@ público ent inicia()
 }`} />
                 </div>
                 <div className="carousel-item">
-                    <Código código={`nat factorial(nat x)
+                    <Código código={`// Factorial de un número natural
+
+nat factorial(nat x)
 {
   si (x == 1)
   {
@@ -30,8 +36,6 @@ público ent inicia()
   {
     devuelve x * factorial(x - 1);
   }
-
-  devuelve 1;
 }`} />
                 </div>
             </div>
