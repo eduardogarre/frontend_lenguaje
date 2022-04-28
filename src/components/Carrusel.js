@@ -9,7 +9,7 @@ const Carrusel = () => {
                 <button type="button" data-bs-target="#carruselCódigo" data-bs-slide-to="1" aria-label="Slide 2"></button>
             </div>
             <div className="carousel-inner p-3 pt-2">
-                <div className="carousel-item active">
+                <div className="carousel-item active" data-bs-interval="10000">
                     <Código código={`// ¡Hola, Mundo!
 
 // Función de la biblioteca estándar
@@ -23,7 +23,7 @@ público ent inicia()
   devuelve 0;
 }`} />
                 </div>
-                <div className="carousel-item">
+                <div className="carousel-item" data-bs-interval="10000">
                     <Código código={`// Factorial de un número natural
 nat factorial(nat x)
 {
