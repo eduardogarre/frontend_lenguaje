@@ -14,9 +14,9 @@ const Cabecera = () => {
     }
 
     return (
-        <nav id="cabecera" className="cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom">
+        <nav id="cabecera" className="cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom p-0">
             <div class="container-fluid">
-                <a className="marca navbar-brand" href="#" style={{ fontWeight: 400 }}>
+                <a className="marca navbar-brand p-0" href="#" style={{ fontWeight: 400 }}>
                     &nbsp;Lenguaje&nbsp;
                     <img src={logo} alt="" style={{ width: "2.7rem", height: "2.7rem" }} className="d-inline-block align-text-bottom" />
                 </a>
@@ -24,7 +24,7 @@ const Cabecera = () => {
                 <button className="navbar-toggler" onClick={accionaNav} type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <ul id="barraNavEnlaces" className={"mr-auto collapse navbar-collapse justify-content-end" + (menuColapsado ? " collapse" : " show")}>
+                <ul id="barraNavEnlaces" className={"mr-auto collapse navbar-collapse justify-content-end pt-3" + (menuColapsado ? " collapse" : " show")}>
                     <div className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link" aria-current="page" href="#">Descarga</a>
