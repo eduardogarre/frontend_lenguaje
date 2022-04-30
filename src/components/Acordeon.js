@@ -11,7 +11,7 @@ const Acordeon = ({ inicial, jerarquía }) => {
     const [idAcordeonBotón] = useState(_uniqueId('idAcordeonBotón-'));
 
     return (
-        <div id={idAcordeon} className="accordion">
+        <div id={idAcordeon} className="accordion accordion-flush">
             {
                 jerarquía.map((elemento) => {
                     console.log("Acordeon: jerarquía.map() ... elemento N \n" + elemento)

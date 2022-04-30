@@ -15,7 +15,7 @@ const AcordeonContenido = ({ contenido, idPadre, idContenido, idBotón }) => {
     }
 
     return (
-        <div id={idContenido} className={"accordion-collapse ms-3" + (terminal ? " show" : " collapse")} aria-labelledby={terminal ? "" : idBotón}>
+        <div id={idContenido} className={"accordion-collapse" + (terminal ? " show" : " ms-3 collapse")} aria-labelledby={terminal ? "" : idBotón}>
             <div className="accordion-body">
 
                 {terminal ?
