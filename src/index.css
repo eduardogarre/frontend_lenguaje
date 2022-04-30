@@ -14,109 +14,110 @@ body {
 @supports (-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px)) {
   .cristal {
     backdrop-filter: blur(20px) saturate(180%);
-    background-color:rgba(255,255,255,0.75);
+    background-color: rgba(255, 255, 255, 0.75);
   }
 }
 
 @supports not ((-webkit-backdrop-filter: saturate(180%) blur(20px)) or (backdrop-filter: saturate(180%) blur(20px))) {
   .cristal {
-    background-color:rgba(255,255,255,1);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
-  .contenedor {
-    max-width: 500px;
-    margin: 30px auto;
-    overflow: auto;
-    min-height: 300px;
-    border: 1px solid steelblue;
-    padding: 30px;
-    border-radius: 5px;
-  }
 
-  .marca {
-    font-size: 2rem;
-  }
+.contenedor {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
 
-  .btn {
-    display: inline-block;
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-family: inherit;
-  }
+.marca {
+  font-size: 2rem;
+}
 
-  .btn:focus {
-    outline: none;
-  }
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-family: inherit;
+}
 
-  .btn:active {
-    transform: scale(0.98);
-  }
+.btn:focus {
+  outline: none;
+}
 
-  .btn-block {
-    display: block;
-    width: 100%;
-  }
+.btn:active {
+  transform: scale(0.98);
+}
 
-  .tarea {
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+.btn-block {
+  display: block;
+  width: 100%;
+}
 
-  .tarea.reminder {
-    border-left: 5px solid green;
-  }
+.tarea {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
-  .tarea h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.tarea.reminder {
+  border-left: 5px solid green;
+}
 
-  .add-form {
-    margin-bottom: 40px;
-  }
+.tarea h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .form-control {
-    margin: 20px 0;
-  }
+.add-form {
+  margin-bottom: 40px;
+}
 
-  .form-control label {
-    display: block;
-  }
+.form-control {
+  margin: 20px 0;
+}
 
-  .form-control input {
-    width: 100%;
-    height: 40px;
-    margin: 5px;
-    padding: 3px 7px;
-    font-size: 17px;
-  }
+.form-control label {
+  display: block;
+}
 
-  .form-control-check {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.form-control input {
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
 
-  .form-control-check label {
-    flex: 1;
-  }
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .form-control-check input {
-    flex: 2;
-    height: 20px;
-  }
+.form-control-check label {
+  flex: 1;
+}
 
-  footer {
-    margin-top: 30px;
-    text-align: center;
-  }
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}

@@ -7,7 +7,7 @@ const MenuLateral = () => {
             id: 0,
             título: "Inicio",
             hijos: [
-                
+
                 {
                     id: 1,
                     título: "Introducción",
@@ -34,7 +34,7 @@ const MenuLateral = () => {
                         }
                     ]
                 }
-                
+
             ]
         },
         {
@@ -45,7 +45,9 @@ const MenuLateral = () => {
     ]
 
     return (
-        <Acordeon inicial={true} jerarquía={jerarquía} />
+        <div className="w-100 py-2 px-4" style={{background: "#f8f8f8"}}>
+            <Acordeon inicial={true} jerarquía={jerarquía} />
+        </div>
     )
 }
 
