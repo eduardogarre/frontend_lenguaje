@@ -16,7 +16,7 @@ const Cabecera = () => {
     return (
         <nav id="cabecera" className="cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom m-0 p-0">
             <div class="container-fluid m-2 px-2">
-                <a className="marca navbar-brand m-0 mt-1 p-0" href="#" style={{ fontWeight: 400 }}>
+                <a className="marca navbar-brand m-0 mt-1 p-0" href="/" style={{ fontWeight: 400 }}>
                     &nbsp;Lenguaje&nbsp;
                     <img src={logo} alt="" style={{ width: "2.7rem", height: "2.7rem" }} className="d-inline-block align-text-bottom" />
                 </a>
@@ -30,13 +30,13 @@ const Cabecera = () => {
                             <a className="nav-link" aria-current="page" href="#">Descarga</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Aprende</a>
+                            <a className="nav-link" href="/aprende">Aprende</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Documentación</a>
+                            <a className="nav-link" href="/documentacion">Documentación</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Proyecto</a>
+                            <a className="nav-link" href="https://github.com/eduardogarre/lenguaje">Proyecto</a>
                         </li>
                     </div>
                 </ul>

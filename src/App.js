@@ -1,21 +1,20 @@
 import Cabecera from "./components/Cabecera";
-import Contenido from "./components/Contenido";
+import Inicio from "./components/Inicio";
 import Pie from "./components/Pie";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
 
   return (
-    <>
+    <BrowserRouter>
       <Cabecera titulo="Lenguaje" />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Contenido />
-      <br />
-      <br />
+      <Routes>
+        <Route path="/" element={<><br /><br /><br /><br /><Inicio /><br /><br /></>}></Route>
+        <Route path="/aprende" element={<><br /><br /><br /><br /><Inicio /><br /><br /></>}></Route>
+        <Route path="/documentacion" element={<><br /><br /><br /><br /><Inicio /><br /><br /></>}></Route>
+      </Routes>
       <Pie />
-    </>
+    </BrowserRouter>
   );
 }
 

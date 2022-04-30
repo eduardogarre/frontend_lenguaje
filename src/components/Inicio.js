@@ -1,7 +1,7 @@
 import Carrusel from "./Carrusel"
 import Bienvenida from "./Bienvenida"
 
-const Contenido = () => {
+const Inicio = () => {
     return (
         <div className="container mw-100 p-3" style={{width: "90rem", display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center", columnGap: "10rem", rowGap: "5rem"}}>
             <Bienvenida />
@@ -10,4 +10,4 @@ const Contenido = () => {
     )
 }
 
-export default Contenido
+export default Inicio

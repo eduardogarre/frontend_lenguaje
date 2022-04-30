@@ -1,4 +1,3 @@
-import Boton from "./Boton"
 import logo from '../img/logo22.png'
 
 const Bienvenida = () => {
