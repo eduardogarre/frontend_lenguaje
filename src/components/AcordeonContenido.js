@@ -1,6 +1,6 @@
 import Acordeon from "./Acordeon"
 
-const AcordeonContenido = ({ contenido }) => {
+const AcordeonContenido = ({ contenido, idPadre, idContenido, idBotón }) => {
 
     let terminal = true
 
@@ -15,7 +15,7 @@ const AcordeonContenido = ({ contenido }) => {
     }
 
     return (
-        <div id="acordeon-1-contenido-1" className="accordion-collapse collapse ms-3" aria-labelledby="acordeon-1-cabecera-1" data-bs-parent="#acordeon-1">
+        <div id={idContenido} className={"accordion-collapse ms-3" + (terminal ? " show" : " collapse")} aria-labelledby={terminal ? "" : idBotón} data-bs-parent={"#" + idPadre}>
             <div className="accordion-body">
 
                 {terminal ?

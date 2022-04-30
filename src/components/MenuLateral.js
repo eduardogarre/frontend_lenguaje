@@ -45,7 +45,7 @@ const MenuLateral = () => {
     ]
 
     return (
-        <Acordeon jerarquía={jerarquía} />
+        <Acordeon inicial={true} jerarquía={jerarquía} />
     )
 }
 

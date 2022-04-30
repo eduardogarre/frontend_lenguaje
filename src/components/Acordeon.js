@@ -1,12 +1,17 @@
+import React, { useState } from 'react';
 import AcordeonBoton from "./AcordeonBoton"
 import AcordeonContenido from "./AcordeonContenido"
+import _uniqueId from 'lodash/uniqueId';
 
-const Acordeon = ({ jerarquía }) => {
+const Acordeon = ({ inicial, jerarquía }) => {
 
     console.log("Acordeon: " + jerarquía)
+    const [idAcordeon] = useState(_uniqueId('idAcordeon-'));
+    const [idAcordeonContenido] = useState(_uniqueId('idAcordeonContenido-'));
+    const [idAcordeonBotón] = useState(_uniqueId('idAcordeonBotón-'));
 
     return (
-        <div id="acordeon-1" className="accordion">
+        <div id={idAcordeon} className="accordion">
             {
                 jerarquía.map((elemento) => {
                     console.log("Acordeon: jerarquía.map() ... elemento N \n" + elemento)
@@ -15,13 +20,13 @@ const Acordeon = ({ jerarquía }) => {
 
                             {(elemento.hijos.length > 0) && (
                                 <>
-                                    <AcordeonBoton título={elemento.id + " " + elemento.título} />
-                                    <AcordeonContenido contenido={elemento.hijos} />
+                                    <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} título={elemento.id + " " + elemento.título} />
+                                    <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} contenido={elemento.hijos} />
                                 </>
                             )}
 
                             {(elemento.hijos.length === 0) && (
-                                <AcordeonContenido contenido={elemento.id + " " + elemento.título} />
+                                <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} contenido={elemento.id + " " + elemento.título} />
                             )}
 
                         </div>
