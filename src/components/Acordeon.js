@@ -20,13 +20,13 @@ const Acordeon = ({ inicial, jerarquía }) => {
 
                             {(elemento.hijos.length > 0) && (
                                 <>
-                                    <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} título={elemento.id + " " + elemento.título} />
-                                    <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} contenido={elemento.hijos} />
+                                    <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} título={elemento.id + " " + elemento.título} />
+                                    <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} contenido={elemento.hijos} />
                                 </>
                             )}
 
                             {(elemento.hijos.length === 0) && (
-                                <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido} idBotón={idAcordeonBotón} contenido={elemento.id + " " + elemento.título} />
+                                <AcordeonContenido idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} contenido={elemento.id + " " + elemento.título} />
                             )}
 
                         </div>

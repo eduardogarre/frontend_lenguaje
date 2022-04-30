@@ -1,4 +1,4 @@
-const AcordeonBoton = ({título, idPadre, idContenido, idBotón}) => {
+const AcordeonBoton = ({título, idContenido, idBotón}) => {
     console.log("AcordeonBoton: " + título)
     return (
         <h2 id={idBotón} className="accordion-header">
