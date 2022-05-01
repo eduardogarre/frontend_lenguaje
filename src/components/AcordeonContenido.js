@@ -1,6 +1,6 @@
 import Acordeon from "./Acordeon"
 
-const AcordeonContenido = ({ contenido, idContenido, idBotón }) => {
+const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) => {
 
     let terminal = true
 
@@ -15,11 +15,11 @@ const AcordeonContenido = ({ contenido, idContenido, idBotón }) => {
     }
 
     return (
-        <div id={idContenido} className={"accordion-collapse bg-transparent m-0 p-0" + (terminal ? " show" : " ms-3 collapse")} aria-labelledby={terminal ? "" : idBotón}>
-            <div className="accordion-body bg-transparent m-0 p-0 py-2">
+        <div id={idContenido} className={"accordion-collapse bg-transparent m-0 p-0" + (terminal ? " show" : " ms-4 collapse")} aria-labelledby={terminal ? "" : idBotón}>
+            <div className="accordion-body enlace bg-transparent m-0 p-0 py-2">
 
                 {terminal ?
-                    <>{contenido}</>
+                    <a href={"/aprende/" + idArtículo}>{contenido}</a>
                     :
                     <Acordeon jerarquía={contenido} />
                 }

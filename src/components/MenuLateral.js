@@ -45,7 +45,7 @@ const MenuLateral = () => {
     ]
 
     return (
-        <div className="border rounded rounded-3 py-2 px-4" style={{width: "20rem", background: "#fafafa"}}>
+        <div className="border rounded rounded-3 py-2 px-4" style={{width: "25rem", background: "#fafafa"}}>
             <Acordeon inicial={true} jerarquía={jerarquía} />
         </div>
     )
