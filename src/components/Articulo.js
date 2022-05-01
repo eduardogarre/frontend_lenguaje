@@ -1,9 +1,16 @@
-const Artículo = ({título, texto}) => {
+const Artículo = ({ título, texto }) => {
 
     return (
-        <div className="text-center" style={{width:"40rem"}}>
+        <div className="text-start" style={{ width: "40rem" }}>
             <h3>{título}</h3>
-            <p>{texto}</p>
+            <br />
+            {
+                texto.map((párrafo) => {
+                    return (
+                        <p>{párrafo}</p>
+                    )
+                })
+            }
         </div>
     )
 }
