@@ -133,7 +133,7 @@ strong {
   text-decoration: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 767px) {
   .presenta-documento{
     flex-wrap: wrap;
   }
