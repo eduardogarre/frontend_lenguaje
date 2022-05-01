@@ -79,9 +79,7 @@ const Contenido = () => {
     let artículo = Artículos.find((a) => a.id == id)
 
     return (
-        <div>
-            <Artículo título={artículo.título} texto={artículo.texto} />
-        </div>
+        <Artículo título={artículo.título} texto={artículo.texto} />
     )
 }
 

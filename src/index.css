@@ -132,3 +132,13 @@ strong {
   color: #163130;
   text-decoration: none;
 }
+
+@media (max-width: 800px) {
+  .presenta-documento{
+    flex-wrap: wrap;
+  }
+  .presenta-documento div{
+    flex: 0 0 100%;
+    text-align: left;
+  }
+}
