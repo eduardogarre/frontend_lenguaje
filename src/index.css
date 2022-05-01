@@ -122,8 +122,13 @@ footer {
   text-align: center;
 }
 
+strong {
+  font-weight: 500;
+  color: #01756f;
+}
+
 .enlace, .enlace a {
   font-weight: 400;
-  color: rgb(75, 75, 75);
+  color: #163130;
   text-decoration: none;
 }
