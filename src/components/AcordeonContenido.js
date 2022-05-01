@@ -1,3 +1,5 @@
+
+import { Link } from 'react-router-dom'
 import Acordeon from "./Acordeon"
 
 const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) => {
@@ -19,7 +21,7 @@ const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) =>
             <div className="accordion-body enlace bg-transparent m-0 p-0 py-2">
 
                 {terminal ?
-                    <a href={"/aprende/" + idArtículo}>{contenido}</a>
+                    <Link to={`/aprende/${idArtículo}`}>{contenido}</Link>
                     :
                     <Acordeon jerarquía={contenido} />
                 }
