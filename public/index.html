@@ -25,7 +25,15 @@
 
   <script src="%PUBLIC_URL%/js/highlight.min.js"></script>
   <script src="%PUBLIC_URL%/js/ñ.min.js"></script>
-  <script>hljs.highlightAll();</script>
+
+  <script>
+    hljs.highlightAll();
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+  </script>
 
   <title>Lenguaje Ñ</title>
 </head>
