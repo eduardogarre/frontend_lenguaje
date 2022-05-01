@@ -45,9 +45,7 @@ const Contenido = () => {
 
     const id = params.idArticulo
 
-    console.log("Contenido - id: " + id)
-
-    let artículo = Artículos.filter((a) => a.id === id)
+    let artículo = Artículos.find((a) => a.id == id)
 
     return (
         <div>
