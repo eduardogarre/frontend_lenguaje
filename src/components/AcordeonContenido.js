@@ -1,6 +1,6 @@
 import Acordeon from "./Acordeon"
 
-const AcordeonContenido = ({ contenido, idPadre, idContenido, idBotón }) => {
+const AcordeonContenido = ({ contenido, idContenido, idBotón }) => {
 
     let terminal = true
 
