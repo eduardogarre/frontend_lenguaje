@@ -4,6 +4,7 @@ const Boton = ({colorFondo, colorTexto, onClick, texto}) => {
 
     return (
             <button
+                type="button"
                 onClick={onClick}
                 className="btn"
                 style={{color: colorTexto, backgroundColor: colorFondo}}

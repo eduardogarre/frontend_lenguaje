@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import Boton from './Boton';
 
 /*
 Ver más en https://stackoverflow.com/questions/1197575/can-scripts-be-inserted-with-innerhtml/20584396#20584396
@@ -85,9 +86,9 @@ const Documentos = () => {
                         plugins: [
                             'quickbars', 'advlist', 'autolink', 'lists', 'code', 'codesample', 'link', 'image', 'charmap',
                             'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                            'insertdatetime', 'media', 'table', 'preview', 'save', 'help', 'wordcount'
+                            'insertdatetime', 'media', 'table', 'preview', 'help', 'wordcount'
                         ],
-                        toolbar: 'save | preview | undo redo | fontfamily fontsize | ' +
+                        toolbar: 'preview | undo redo | fontfamily fontsize | ' +
                             'bold italic forecolor | alignleft aligncenter ' +
                             'alignright alignjustify | bullist numlist outdent indent | ' +
                             'styles | codesample code | hr | removeformat | help',
@@ -103,7 +104,7 @@ const Documentos = () => {
                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
                 />
-                <button type='button'>Log editor content</button>
+                <Boton texto="Guarda" onClick={handleSubmit} />
             </form>
             <div id="raiz"></div>
         </>
