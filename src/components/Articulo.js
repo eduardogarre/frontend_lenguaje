@@ -1,8 +1,4 @@
-import { useParams } from "react-router-dom";
-
 const Artículo = ({título, texto}) => {
-    
-    let params = useParams();
 
     return (
         <div className="text-center" style={{width:"40rem"}}>
