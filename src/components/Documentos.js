@@ -37,8 +37,14 @@ function nodeScriptIs(node) {
 
 let raiz;
 
-const ejecutaHLJS = `<script>hljs.highlightAll();</script>`
-
+const ejecutaHLJS = `
+<script>
+Array.from(document.getElementsByClassName('language-none')).forEach((elemento) => {
+    elemento.className = "";
+});
+hljs.highlightAll();
+</script>
+`
 
 const Documentos = () => {
     const editorRef = useRef(null);
