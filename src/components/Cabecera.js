@@ -17,10 +17,10 @@ const Cabecera = () => {
     return (
         <nav id="cabecera" className="cristal navbar fixed-top navbar-expand-md navbar-nav navbar-light border-bottom m-0 p-0">
             <div className="container-fluid m-2 px-2">
-                <Link className="marca navbar-brand m-0 mt-1 p-0" to="/" style={{ fontWeight: 400 }}>
+                <a className="marca navbar-brand m-0 mt-1 p-0" href="/" style={{ fontWeight: 400 }}>
                     &nbsp;Lenguaje&nbsp;
                     <img src={logo} alt="" style={{ width: "2.7rem", height: "2.7rem" }} className="d-inline-block align-text-bottom" />
-                </Link>
+                </a>
 
                 <button className="navbar-toggler me-4" onClick={accionaNav} type="button" data-toggle="collapse" data-target="#barraNavEnlaces" aria-controls="barraNavEnlaces" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
