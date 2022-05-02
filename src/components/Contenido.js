@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Artículo from "./Articulo"
 
@@ -63,24 +64,44 @@ const Artículos = [
 
 const Contenido = () => {
 
+    const [estáCargando, setEstaCargando] = useState(true);
+    const [contenidoArtículo, setContenidoArtículo] = useState(null);
+
     let params = useParams();
 
     let id = 0
 
-    if(params.idArticulo != undefined)
-    {
+    if (params.idArticulo != undefined) {
         id = params.idArticulo
     }
-    else
-    {
+    else {
         id = 1
     }
 
     let artículo = Artículos.find((a) => a.id == id)
 
-    return (
-        <Artículo título={artículo.título} texto={artículo.texto} />
-    )
+    useEffect(() => {
+        fetch('http://localhost:8000/api/v1/documentos')
+            .then(respuesta => respuesta.json())
+            .then(dato => {
+                setContenidoArtículo(dato.arr);
+                setEstaCargando(false);
+                console.log(dato);
+            })
+    }, []);
+
+    if (estáCargando) { // ⬅️ si está cargando, mostramos un texto que lo indique
+        return (
+            <div>
+                <h1>Cargando...</h1>
+            </div>
+        );
+    }
+    else {
+        return (
+            <Artículo título={contenidoArtículo[2]} texto={artículo.texto} />
+        )
+    }
 }
 
 export default Contenido
