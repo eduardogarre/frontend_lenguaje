@@ -11,6 +11,9 @@
 # production
 /build
 
+# Ejecutables
+*.exe
+
 # misc
 .DS_Store
 .env.local
