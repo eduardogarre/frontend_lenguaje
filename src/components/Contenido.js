@@ -90,11 +90,13 @@ const Contenido = () => {
             })
     }, []);
 
-    if (estáCargando) { // ⬅️ si está cargando, mostramos un texto que lo indique
+    if (estáCargando) { // Si está cargando, mostramos un texto que lo indique
         return (
-            <div>
-                <h1>Cargando...</h1>
-            </div>
+            <center className="w-100">
+                <div>
+                    <h1><i className="bi bi-clock-history"></i></h1>
+                </div>
+            </center>
         );
     }
     else {
