@@ -49,7 +49,7 @@ hljs.highlightAll();
 const Documentos = () => {
     const editorRef = useRef(null);
 
-    const handleSubmit = (e) => {
+    const guardaDocumento = (e) => {
 
         let contenidoEditor
 
@@ -75,7 +75,7 @@ const Documentos = () => {
 
     return (
         <>
-            <form action='/api/v1/documento' onSubmit={handleSubmit} onClick={handleSubmit}>
+            <form action='/api/v1/documento' onSubmit={guardaDocumento} onClick={guardaDocumento}>
                 <Editor
                     onInit={(evt, editor) => editorRef.current = editor}
                     initialValue="<p>This is the initial content of the editor.</p>"
@@ -104,7 +104,7 @@ const Documentos = () => {
                         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
                 />
-                <Boton texto="Guarda" onClick={handleSubmit} />
+                <Boton texto="Guarda" onClick={guardaDocumento} />
             </form>
             <div id="raiz"></div>
         </>
