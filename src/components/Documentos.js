@@ -49,12 +49,6 @@ hljs.highlightAll();
 const Documentos = () => {
     const editorRef = useRef(null);
 
-    const log = () => {
-        if (editorRef.current) {
-            console.log(editorRef.current.getContent());
-        }
-    };
-
     const handleSubmit = (e) => {
 
         let contenidoEditor
@@ -81,7 +75,7 @@ const Documentos = () => {
 
     return (
         <>
-            <form action='' onSubmit={handleSubmit} onClick={handleSubmit}>
+            <form action='/api/v1/documento' onSubmit={handleSubmit} onClick={handleSubmit}>
                 <Editor
                     onInit={(evt, editor) => editorRef.current = editor}
                     initialValue="<p>This is the initial content of the editor.</p>"
