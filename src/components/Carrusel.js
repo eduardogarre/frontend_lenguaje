@@ -25,15 +25,15 @@ público ent inicia()
                 </div>
                 <div className="carousel-item" data-bs-interval="10000">
                     <Código código={`// Factorial de un número natural
-nat factorial(nat x)
+nat factorial(nat número)
 {
-  si (x == 1)
+  si (número == 1)
   {
     devuelve 1;
   }
   sino
   {
-    devuelve x * factorial(x - 1);
+    devuelve número * factorial(número - 1);
   }
 }`} />
                 </div>
