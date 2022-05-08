@@ -7,25 +7,25 @@ Ver más en https://stackoverflow.com/questions/1197575/can-scripts-be-inserted-
 "A method that recursively replaces all scripts with executable ones", del usuario Mjs
 */
 function nodeScriptReplace(node) {
-    if ( nodeScriptIs(node) === true ) {
-            node.parentNode.replaceChild( nodeScriptClone(node) , node );
+    if (nodeScriptIs(node) === true) {
+        node.parentNode.replaceChild(nodeScriptClone(node), node);
     }
     else {
-            var i = -1, children = node.childNodes;
-            while ( ++i < children.length ) {
-                  nodeScriptReplace( children[i] );
-            }
+        var i = -1, children = node.childNodes;
+        while (++i < children.length) {
+            nodeScriptReplace(children[i]);
+        }
     }
 
     return node;
 }
-function nodeScriptClone(node){
-    var script  = document.createElement("script");
+function nodeScriptClone(node) {
+    var script = document.createElement("script");
     script.text = node.innerHTML;
 
     var i = -1, attrs = node.attributes, attr;
-    while ( ++i < attrs.length ) {                                    
-          script.setAttribute( (attr = attrs[i]).name, attr.value );
+    while (++i < attrs.length) {
+        script.setAttribute((attr = attrs[i]).name, attr.value);
     }
     return script;
 }
@@ -62,6 +62,27 @@ const Documentos = () => {
         console.log('Contenido Editor')
         console.log(código)
 
+        let dato = {
+            "id": 0,
+            "contenido": código
+        }
+
+        const códigoJson = JSON.stringify(dato)
+
+        let formulario = document.getElementById("formularioArticulo")
+        const ruta = 'http://localhost:8000/api/v1/documento'
+
+        fetch(ruta, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'post',
+            mode: 'no-cors', // no-cors, cors, same-origin
+            cache: 'no-cache',
+            body: códigoJson,
+        })
+
         raiz = document.getElementById("raiz")
 
         raiz.innerHTML = ""
@@ -70,12 +91,13 @@ const Documentos = () => {
         nodeScriptReplace(raiz);
 
         e.preventDefault();
+
         return false;
     }
 
     return (
         <>
-            <form action='/api/v1/documento' onSubmit={guardaDocumento} onClick={guardaDocumento}>
+            <form id="formularioArticulo">
                 <Editor
                     onInit={(evt, editor) => editorRef.current = editor}
                     initialValue="<p>This is the initial content of the editor.</p>"
