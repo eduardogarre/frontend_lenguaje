@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import Boton from './Boton';
 import { nodeScriptReplace, ejecutaHLJS } from "../herramientas"
+import {servidor} from '../Configuración'
 
 let raiz;
 
@@ -22,7 +23,7 @@ const Documentos = () => {
         console.log(código);
 
         let título = document.getElementById("título");
-        const ruta = 'http://localhost:8000/api/v1/documento';
+        const ruta = servidor + '/api/v1/documento';
 
         let dato = {
             "id": 0,
