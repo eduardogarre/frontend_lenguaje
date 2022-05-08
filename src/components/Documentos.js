@@ -64,7 +64,10 @@ const Documentos = () => {
 
         let dato = {
             "id": 0,
-            "contenido": código
+            "padre": 0,
+            "título": "Nuevo artículo",
+            "contenido": código,
+            "hijos": []
         }
 
         const códigoJson = JSON.stringify(dato)
@@ -77,8 +80,8 @@ const Documentos = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            method: 'post',
-            mode: 'no-cors', // no-cors, cors, same-origin
+            method: 'POST',
+            mode: 'cors', // no-cors, cors, same-origin
             cache: 'no-cache',
             body: códigoJson,
         })
