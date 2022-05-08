@@ -143,6 +143,11 @@ strong {
   }
 }
 
+pre {
+  border: 1px solid #01756f;
+  border-radius: 5px;
+}
+
 code, pre code {
   font-family: "Roboto Mono";
   text-shadow: "4px 4px 8px #ddd";

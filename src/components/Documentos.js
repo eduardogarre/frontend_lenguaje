@@ -1,18 +1,9 @@
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import Boton from './Boton';
-import {nodeScriptReplace} from "../herramientas"
+import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
 
 let raiz;
-
-const ejecutaHLJS = `
-<script>
-Array.from(document.getElementsByClassName('language-none')).forEach((elemento) => {
-    elemento.className = "";
-});
-hljs.highlightAll();
-</script>
-`
 
 const Documentos = () => {
     const editorRef = useRef(null);
@@ -34,7 +25,7 @@ const Documentos = () => {
             "id": 0,
             "padre": 0,
             "título": "Nuevo artículo",
-            "contenido": código,
+            "contenido": contenidoEditor,
             "hijos": []
         }
 

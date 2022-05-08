@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import {nodeScriptReplace} from "../herramientas"
+import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
 
 const Artículo = ({ título, texto }) => {
 
@@ -9,7 +9,7 @@ const Artículo = ({ título, texto }) => {
         visor_documento = document.getElementById("visor_documento");
 
         visor_documento.innerHTML = "";
-        visor_documento.innerHTML = texto;
+        visor_documento.innerHTML = texto + ejecutaHLJS;
 
         nodeScriptReplace(visor_documento);
     }, []);

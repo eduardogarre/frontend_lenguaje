@@ -31,4 +31,13 @@ function nodeScriptIs(node) {
 }
 ///////////////////
 
-export {nodeScriptReplace};
+const ejecutaHLJS = `
+<script>
+Array.from(document.getElementsByClassName('language-none')).forEach((elemento) => {
+    elemento.className = "";
+});
+hljs.highlightAll();
+</script>
+`
+
+export {nodeScriptReplace, ejecutaHLJS};
