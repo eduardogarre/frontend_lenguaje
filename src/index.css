@@ -143,7 +143,7 @@ strong {
   }
 }
 
-pre code {
+code, pre code {
   font-family: "Roboto Mono";
   text-shadow: "4px 4px 8px #ddd";
 }
