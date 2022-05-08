@@ -65,7 +65,7 @@ const Artículos = [
 const Contenido = () => {
 
     const [estáCargando, setEstaCargando] = useState(true);
-    const [contenidoArtículo, setContenidoArtículo] = useState(null);
+    const [documento, setDocumento] = useState(null);
 
     let params = useParams();
 
@@ -81,10 +81,10 @@ const Contenido = () => {
     let artículo = Artículos.find((a) => a.id == id)
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/v1/documentos')
+        fetch('http://localhost:8000/api/v1/documento/' + id)
             .then(respuesta => respuesta.json())
             .then(dato => {
-                setContenidoArtículo(dato.arr);
+                setDocumento(dato);
                 setEstaCargando(false);
                 console.log(dato);
             })
@@ -101,7 +101,7 @@ const Contenido = () => {
     }
     else {
         return (
-            <Artículo título={artículo.título} texto={artículo.texto} />
+            <Artículo título={documento.título} texto={documento.contenido} />
         )
     }
 }
