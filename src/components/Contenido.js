@@ -101,7 +101,7 @@ const Contenido = () => {
     }
     else {
         return (
-            <Artículo título={contenidoArtículo[2]} texto={artículo.texto} />
+            <Artículo título={artículo.título} texto={artículo.texto} />
         )
     }
 }
