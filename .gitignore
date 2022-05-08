@@ -13,6 +13,7 @@
 
 # Ejecutables
 *.exe
+*.toml
 
 # misc
 .DS_Store
