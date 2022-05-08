@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import Boton from './Boton';
-import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
+import { nodeScriptReplace, ejecutaHLJS } from "../herramientas"
 
 let raiz;
 
@@ -10,29 +10,29 @@ const Documentos = () => {
 
     const guardaDocumento = (e) => {
 
-        let contenidoEditor
+        let contenidoEditor;
 
         if (editorRef.current) {
             contenidoEditor = editorRef.current.getContent();
         }
 
-        const código = contenidoEditor + ejecutaHLJS
+        const código = contenidoEditor + ejecutaHLJS;
 
-        console.log('Contenido Editor')
-        console.log(código)
+        console.log('Contenido Editor');
+        console.log(código);
+
+        let título = document.getElementById("título");
+        const ruta = 'http://localhost:8000/api/v1/documento';
 
         let dato = {
             "id": 0,
             "padre": 0,
-            "título": "Nuevo artículo",
+            "título": título.value,
             "contenido": contenidoEditor,
             "hijos": []
         }
 
-        const códigoJson = JSON.stringify(dato)
-
-        let formulario = document.getElementById("formularioArticulo")
-        const ruta = 'http://localhost:8000/api/v1/documento'
+        const códigoJson = JSON.stringify(dato);
 
         fetch(ruta, {
             headers: {
@@ -60,6 +60,11 @@ const Documentos = () => {
     return (
         <>
             <form id="formularioArticulo">
+                <div className="mb-3">
+                    <label for="título" className="form-label">Título</label>
+                    <input type="text" className="form-control" id="título" aria-describedby="ayudaTítulo"/>
+                        <div id="ayudaTítulo" className="form-text">Inserta aquí el título de este documento.</div>
+                </div>
                 <Editor
                     onInit={(evt, editor) => editorRef.current = editor}
                     initialValue="<p>This is the initial content of the editor.</p>"
