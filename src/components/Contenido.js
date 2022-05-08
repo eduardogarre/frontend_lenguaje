@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Artículo from "./Articulo"
+import { servidor } from "../Configuración";
 
 const Artículos = [
     {
@@ -81,7 +82,7 @@ const Contenido = () => {
     let artículo = Artículos.find((a) => a.id == id)
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/v1/documento/' + id)
+        fetch(servidor + '/api/v1/documento/' + id)
             .then(respuesta => respuesta.json())
             .then(dato => {
                 setDocumento(dato);
