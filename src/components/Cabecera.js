@@ -37,6 +37,9 @@ const Cabecera = () => {
                             <Link className="nav-link" to="/documentacion">Documentación</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/accede">Accede</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="https://github.com/eduardogarre/lenguaje">Proyecto</Link>
                         </li>
                     </div>
