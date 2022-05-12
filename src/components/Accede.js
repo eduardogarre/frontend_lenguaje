@@ -9,7 +9,7 @@ function Accede() {
     const [usuario, setUsuario] = useState('');
     const [clave, setClave] = useState('');
     const [msjError, setMsjError] = useState('');
-    const [éxito, setÉxito] = useState(true);
+    const [éxito, setÉxito] = useState(false);
 
     useEffect(() => {
         refUsuario.current.focus();
@@ -19,9 +19,17 @@ function Accede() {
         setMsjError('lorem ipsum dolor sine amet');
     }, [usuario, clave]);
 
+    const manejaEnvío = async (e) => {
+        e.preventDefault();
+        console.log(usuario, clave);
+        setUsuario("");
+        setClave("");
+        setÉxito(true);
+    }
+
     return (
         <div className='shadow rounded-3 p-4' style={{ width: "31rem", outline: "1px solid #ddd" }}>
-            <form>
+            <form onSubmit={manejaEnvío}>
                 <div className="input-group mb-3">
                     <span id="etiqueta-usuario" className='input-group-text my-0 py-0' style={{ width: "5rem" }}>Usuario</span>
                     <input
