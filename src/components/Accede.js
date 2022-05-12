@@ -57,7 +57,8 @@ function Accede() {
                     />
                 </div>
                 <div className='input-group pe-1' style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", flexWrap: "nowrap" }}>
-                    <div ref={refError} className={"rounded-3 " + éxito ? "msjerror" : "oculto"} style={{ width: "20rem", height: "3rem" }} aria-live="assertive">{msjError}</div>
+                    <div ref={refError} className={"rounded-3 " + (éxito ? "msjerror" : "oculto")} style={{ width: "20rem", height: "3rem" }} aria-live="assertive">{msjError}</div>
+                    <div></div>
                     <Boton texto="Entra" />
                 </div>
             </form>
