@@ -18,7 +18,7 @@ Boton.defaultProps = {
     colorFondo: "MediumSpringGreen",
     colorTexto: "black",
     texto: "botón",
-    onClick: () => {alert("click")}
+    onClick: () => {}
 }
 
 Boton.propTypes = {
