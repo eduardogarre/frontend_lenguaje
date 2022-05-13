@@ -72,14 +72,12 @@ const Contenido = () => {
 
     let id = 0
 
-    if (params.idArticulo != undefined) {
+    if (params.idArticulo !== undefined) {
         id = params.idArticulo
     }
     else {
         id = 1
     }
-
-    let artículo = Artículos.find((a) => a.id == id)
 
     useEffect(() => {
         fetch(servidor + '/api/v1/documento/' + id)
@@ -89,7 +87,7 @@ const Contenido = () => {
                 setEstaCargando(false);
                 console.log(dato);
             })
-    }, []);
+    }, [id]);
 
     if (estáCargando) { // Si está cargando, mostramos un texto que lo indique
         return (
