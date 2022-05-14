@@ -10,7 +10,7 @@ const Artículo = ({ título, texto }) => {
         refVisorDocumento.current.innerHTML = texto + ejecutaHLJS;
 
         nodeScriptReplace(refVisorDocumento.current);
-    }, []);
+    }, [texto]);
 
     return (
         <div style={{overflowWrap: "break-word"}}>
