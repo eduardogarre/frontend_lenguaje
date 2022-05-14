@@ -1,24 +1,22 @@
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
 
 const Artículo = ({ título, texto }) => {
-
-    let visor_documento;
+    
+    const refVisorDocumento = useRef();
 
     useEffect(() => {
-        visor_documento = document.getElementById("visor_documento");
+        refVisorDocumento.current.innerHTML = "";
+        refVisorDocumento.current.innerHTML = texto + ejecutaHLJS;
 
-        visor_documento.innerHTML = "";
-        visor_documento.innerHTML = texto + ejecutaHLJS;
-
-        nodeScriptReplace(visor_documento);
+        nodeScriptReplace(refVisorDocumento.current);
     }, []);
 
     return (
         <div style={{overflowWrap: "break-word"}}>
             <h3>{título}</h3>
             <br />
-            <div id="visor_documento"></div>
+            <div ref={refVisorDocumento}></div>
         </div>
     )
 }
