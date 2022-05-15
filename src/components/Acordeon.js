@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AcordeonBoton from "./AcordeonBoton"
 import AcordeonContenido from "./AcordeonContenido"
 import _uniqueId from 'lodash/uniqueId';
 
 const Acordeon = ({ documentos }) => {
 
-    console.log("Documentos recibidos por Acordeon: ")
-    console.log(documentos)
+    const [haRenderizado, renderiza] = useState(false);
     const [idAcordeon] = useState(_uniqueId('idAcordeon-'));
     const [idAcordeonContenido] = useState(_uniqueId('idAcordeonContenido-'));
     const [idAcordeonBotón] = useState(_uniqueId('idAcordeonBotón-'));
+
+    const [, actualizaEstado] = React.useState();
+    const fuerzaRenderizado = React.useCallback(() => actualizaEstado({}), []);
+
+    useEffect(() => {
+        console.log("Documentos recibidos por Acordeon: ");
+        console.log(documentos);
+        fuerzaRenderizado();
+    }, [renderiza, haRenderizado, documentos, fuerzaRenderizado]);
 
     return (
         <div id={idAcordeon} className="accordion accordion-flush bg-transparent w-100 m-0 p-0">
