@@ -57,7 +57,7 @@ function Acceso() {
             }
         }
         catch (err) {
-            setMsjError("Error, credenciales incorrectas");
+            setMsjError("Error al conectar con el servidor");
         }
     }
 
