@@ -32,12 +32,15 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
     })
 
     useEffect(() => {
-        fetch(servidor + '/api/v1/documento/' + id)
-            .then(respuesta => respuesta.json())
-            .then(dato => {
-                setDocumento(dato);
-                setEstaCargando(false);
-            })
+        if (acción === "edita") {
+            fetch(servidor + '/api/v1/documento/' + id)
+                .then(respuesta => respuesta.json())
+                .then(doc => {
+                    título = doc.título;
+                    setDocumento(doc);
+                    setEstaCargando(false);
+                })
+        }
     }, [id]);
 
     const guardaDocumento = (e) => {
@@ -95,12 +98,12 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
                 <form id="formularioArticulo">
                     <div className="mb-3">
                         <label for="título" className="form-label">Título</label>
-                        <input type="text" className="form-control" id="título" aria-describedby="ayudaTítulo" value={título} />
+                        <input type="text" className="form-control" id="título" aria-describedby="ayudaTítulo" value={(acción === "edita") ? documento.título : título} />
                         <div id="ayudaTítulo" className="form-text">Inserta aquí el título de este documento.</div>
                     </div>
                     <Editor
                         onInit={(evt, editor) => editorRef.current = editor}
-                        initialValue={contenido}
+                        initialValue={(acción === "edita") ? documento.contenido : contenido}
                         init={{
                             height: 500,
                             menubar: false,
