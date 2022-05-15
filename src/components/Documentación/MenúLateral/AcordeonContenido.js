@@ -21,7 +21,7 @@ const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) =>
             <div className="accordion-body enlace bg-transparent m-0 p-0 py-2">
 
                 {terminal ?
-                    <Link to={`/aprende/${idArtículo}`}>{contenido}</Link>
+                    <Link to={`/documentacion/${idArtículo}`}>{contenido}</Link>
                     :
                     <Acordeon jerarquía={contenido} />
                 }
