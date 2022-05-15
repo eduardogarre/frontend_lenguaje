@@ -166,3 +166,8 @@ code, pre code {
   font-weight: 400;
   padding: 0.7rem;
 }
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
