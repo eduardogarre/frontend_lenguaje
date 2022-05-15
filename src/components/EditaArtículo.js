@@ -38,6 +38,8 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
     }, [acción, id]);
 
     const guardaDocumento = (e) => {
+        let acción_realizada = (acción === "edita") ? "editado, con Id: " + id : (acción === "crea") ? "creado, con Padre: " + padre : "erróneo";
+        console.log("Guardando documento " + acción_realizada);
 
         let contenidoEditor;
 
@@ -51,11 +53,10 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
         console.log(código);
 
         let título = document.getElementById("título");
-        const ruta = servidor + '/api/v1/documento';
 
         let dato = {
-            "id": 0,
-            "padre": 0,
+            "id": id,
+            "padre": ((acción === "edita") ? documento.padre :  (acción === "crea") ? padre : "error"),
             "título": título.value,
             "contenido": contenidoEditor,
             "hijos": []
@@ -63,12 +64,15 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
 
         const códigoJson = JSON.stringify(dato);
 
+        let verboHTTP = (acción === "edita") ? "PATCH" : (acción === "crea") ? "POST" : "";
+        const ruta = servidor + '/api/v1/documento' + ((acción === "edita") ? "/" + id : "");
+
         fetch(ruta, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            method: 'POST',
+            method: verboHTTP,
             mode: 'cors', // no-cors, cors, same-origin
             cache: 'no-cache',
             body: códigoJson,
@@ -123,7 +127,7 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                         }}
                     />
-                    <Boton texto="Guarda" onClick={guardaDocumento} />
+                    <Boton texto={((acción === "edita") ? "Guarda cambios" :  (acción === "crea") ? "Crea artículo" : "Error")} onClick={guardaDocumento} />
                 </form>
             )}
         </>
