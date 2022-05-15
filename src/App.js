@@ -14,11 +14,8 @@ function App() {
       <Cabecera titulo="Lenguaje" />
       <Routes>
         <Route path="/" element={<><br /><br /><br /><br /><Portada /><br /><br /></>}></Route>
-        <Route path="/aprende" element={<><br /><br /><br /><br /><Aprende /><br /><br /></>}></Route>
         <Route path="/aprende/*" element={<><br /><br /><br /><br /><Aprende /><br /><br /></>}></Route>
-        <Route path="/documentacion" element={<><br /><br /><br /><br /><Documentos /><br /><br /></>}></Route>
         <Route path="/documentacion/*" element={<><br /><br /><br /><br /><Documentos /><br /><br /></>}></Route>
-        <Route path="/accede" element={<><br /><br /><br /><br /><Accede /><br /><br /></>}></Route>
         <Route path="/accede/*" element={<><br /><br /><br /><br /><Accede /><br /><br /></>}></Route>
         <Route path="*" element={<Error404 />}></Route>
       </Routes>
