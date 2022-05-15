@@ -43,7 +43,12 @@ const Acordeon = ({ idRaíz, documentos }) => {
                     )
                 })
             }
-            <Link to={"/edita/" + idRaíz + "/crea"}>Nuevo</Link>
+            <div className='mt-1 m-0 p-0'>
+                <Link className='enlace d-flex flex-row align-items-center m-0 p-0' to={"/edita/" + idRaíz + "/crea"}>
+                    <i className="m-0 p-0 bi bi-plus fs-3"></i>
+                    <strong>Añade</strong>
+                </Link>
+            </div>
         </div>
     )
 }

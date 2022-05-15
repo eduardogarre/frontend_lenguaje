@@ -8,10 +8,7 @@ const Cabecera = () => {
     const [menuColapsado, setMenuColapsado] = useState(true)
 
     const accionaNav = () => {
-        console.log("antes: " + menuColapsado)
         setMenuColapsado(!menuColapsado)
-        console.log("después: " + menuColapsado)
-        console.log(" ")
     }
 
     return (
