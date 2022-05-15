@@ -10,8 +10,10 @@ import Accede from "./components/Accede";
 function App() {
 
   return (
+    <div className="d-flex flex-column min-vh-100">
     <BrowserRouter>
       <Cabecera titulo="Lenguaje" />
+        <div className="mt-4">
       <Routes>
         <Route path="/" element={<><br /><br /><br /><br /><Portada /><br /><br /></>}></Route>
         <Route path="/aprende/*" element={<><br /><br /><br /><br /><Aprende /><br /><br /></>}></Route>
@@ -19,8 +21,10 @@ function App() {
         <Route path="/accede/*" element={<><br /><br /><br /><br /><Accede /><br /><br /></>}></Route>
         <Route path="*" element={<Error404 />}></Route>
       </Routes>
+        </div>
       <Pie />
     </BrowserRouter>
+    </div>
   );
 }
 
