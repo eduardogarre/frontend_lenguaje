@@ -3,9 +3,9 @@ import AcordeonBoton from "./AcordeonBoton"
 import AcordeonContenido from "./AcordeonContenido"
 import _uniqueId from 'lodash/uniqueId';
 
-const Acordeon = ({ jerarquía }) => {
+const Acordeon = ({ documentos }) => {
 
-    console.log("Acordeon: " + jerarquía)
+    console.log("Acordeon: " + documentos)
     const [idAcordeon] = useState(_uniqueId('idAcordeon-'));
     const [idAcordeonContenido] = useState(_uniqueId('idAcordeonContenido-'));
     const [idAcordeonBotón] = useState(_uniqueId('idAcordeonBotón-'));
@@ -13,8 +13,8 @@ const Acordeon = ({ jerarquía }) => {
     return (
         <div id={idAcordeon} className="accordion accordion-flush bg-transparent w-100 m-0 p-0">
             {
-                jerarquía.map((elemento) => {
-                    console.log("Acordeon: jerarquía.map() ... elemento N \n" + elemento)
+                documentos.map((elemento) => {
+                    console.log("Acordeon: documentos.map() ... elemento N \n" + elemento)
                     return (
                         <div className="accordion-item bg-transparent m-0 p-0">
 
