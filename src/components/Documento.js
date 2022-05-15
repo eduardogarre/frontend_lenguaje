@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
 
-const Artículo = ({ título, texto }) => {
+const Documento = ({ título, texto }) => {
     
     const refVisorDocumento = useRef();
 
@@ -21,4 +21,4 @@ const Artículo = ({ título, texto }) => {
     )
 }
 
-export default Artículo
+export default Documento

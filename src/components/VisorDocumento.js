@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Artículo from "./Articulo"
+import Documento from "./Documento"
 import { servidor } from "../Configuración";
 
 const VisorDocumento = () => {
@@ -39,7 +39,7 @@ const VisorDocumento = () => {
     }
     else {
         return (
-            <Artículo título={documento.título} texto={documento.contenido} />
+            <Documento título={documento.título} texto={documento.contenido} />
         )
     }
 }
