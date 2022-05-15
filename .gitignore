@@ -15,6 +15,9 @@
 *.exe
 *.toml
 
+# Documentos
+documentos.json
+
 # misc
 .DS_Store
 .env.local
