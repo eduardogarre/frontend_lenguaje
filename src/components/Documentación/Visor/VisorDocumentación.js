@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VisorDocumento from "./VisorDocumento";
-import { servidor } from "../Configuración";
+import { servidor } from "../../../Configuración";
 
 const VisorDocumentación = () => {
 

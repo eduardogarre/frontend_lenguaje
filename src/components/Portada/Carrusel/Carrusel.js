@@ -1,4 +1,4 @@
-import Código from './Código'
+import Código from '../../Código'
 
 const Carrusel = () => {
 

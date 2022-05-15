@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Error404 from "./Error404";
-import MenuLateral from "./MenuLateral"
-import VisorDocumentación from "./VisorDocumentación"
+import Error404 from "./../Error404";
+import MenúLateral from "./MenúLateral/MenúLateral"
+import VisorDocumentación from "./Visor/VisorDocumentación"
 
 const Documentación = () => {
 
@@ -9,13 +9,13 @@ const Documentación = () => {
         <Routes>
             <Route path="" element={
                 <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem"}}>
-                    <MenuLateral />
+                    <MenúLateral />
                     <VisorDocumentación />
                 </div>
             } >
                 <Route path=":idArticulo" element={
                     <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem"}}>
-                        <MenuLateral />
+                        <MenúLateral />
                         <VisorDocumentación />
                     </div>
                 } />

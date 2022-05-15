@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import Boton from './Boton';
-import { servidor } from '../Configuración'
+import Boton from './../Boton';
+import { servidor } from '../../Configuración'
 
 function Accede() {
     const refUsuario = useRef();

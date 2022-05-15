@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
+import {nodeScriptReplace, ejecutaHLJS} from "../../../herramientas"
 
 const VisorDocumento = ({ título, texto }) => {
     

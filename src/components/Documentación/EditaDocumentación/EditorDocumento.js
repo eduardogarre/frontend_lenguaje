@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
-import Boton from './Boton';
-import { ejecutaHLJS } from "../herramientas"
-import { servidor } from '../Configuración'
+import Boton from '../../Boton';
+import { ejecutaHLJS } from "../../../herramientas"
+import { servidor } from '../../../Configuración'
 
 const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
 

@@ -1,4 +1,4 @@
-import logo from '../img/logo22.png'
+import logo from '../../img/logo22.png'
 
 const Bienvenida = () => {
 

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Error404 from "./Error404";
+import Error404 from "../../Error404";
 import React, {} from 'react';
 import EditorDocumento from "./EditorDocumento";
 

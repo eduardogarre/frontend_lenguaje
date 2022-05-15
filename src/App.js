@@ -1,11 +1,11 @@
 import Cabecera from "./components/Cabecera";
 import Pie from "./components/Pie";
-import Portada from "./components/Portada";
-import Documentación from "./components/Documentación";
-import EditaDocumentación from "./components/EditaDocumentación";
+import Portada from "./components/Portada/Portada";
+import Documentación from "./components/Documentación/Documentación";
+import EditaDocumentación from "./components/Documentación/EditaDocumentación/EditaDocumentación";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Error404 from "./components/Error404";
-import Accede from "./components/Accede";
+import Accede from "./components/Accede/Accede";
 
 function App() {
 

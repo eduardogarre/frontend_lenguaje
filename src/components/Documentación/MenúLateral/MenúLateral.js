@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { servidor } from "../Configuración";
+import { servidor } from "../../../Configuración";
 import Acordeon from "./Acordeon"
 
-const MenuLateral = () => {
+const MenúLateral = () => {
 
     const [cargando, setCargando] = useState(true);
     const [documentos, setDocumentos] = useState([]);
@@ -58,4 +58,4 @@ const MenuLateral = () => {
     )
 }
 
-export default MenuLateral
+export default MenúLateral
