@@ -91,7 +91,7 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
             {(!estáCargando) && (
                 <form id="formularioArticulo">
                     <div className="mb-3">
-                        <label for="título" className="form-label">Título</label>
+                        <label htmlFor="título" className="form-label">Título</label>
                         <input type="text" className="form-control" id="título" aria-describedby="ayudaTítulo" value={(acción === "edita") ? documento.título : título} />
                         <div id="ayudaTítulo" className="form-text">Inserta aquí el título de este documento.</div>
                     </div>
