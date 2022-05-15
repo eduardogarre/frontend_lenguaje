@@ -35,7 +35,7 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
                     setEstaCargando(false);
                 })
         }
-    }, [id]);
+    }, [acción, id]);
 
     const guardaDocumento = (e) => {
 
