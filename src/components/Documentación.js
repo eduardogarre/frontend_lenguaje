@@ -3,7 +3,7 @@ import Error404 from "./Error404";
 import MenuLateral from "./MenuLateral"
 import Contenido from "./Contenido"
 
-const Aprende = () => {
+const Documentación = () => {
 
     return (
         <Routes>
@@ -25,4 +25,4 @@ const Aprende = () => {
     )
 }
 
-export default Aprende
+export default Documentación
