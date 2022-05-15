@@ -14,17 +14,21 @@ const Acordeon = ({ idRaíz, documentos }) => {
     const [, actualizaEstado] = React.useState();
     const fuerzaRenderizado = React.useCallback(() => actualizaEstado({}), []);
 
+    console.log("Acordeon: Documentos recibidos: ");
+    console.log(documentos);
+
     useEffect(() => {
-        console.log("Documentos recibidos por Acordeon: ");
-        console.log(documentos);
         fuerzaRenderizado();
     }, [renderiza, haRenderizado, documentos, fuerzaRenderizado]);
 
     return (
         <div id={idAcordeon} className="accordion accordion-flush bg-transparent w-100 m-0 p-0">
+            
             {
                 documentos.map((elemento) => {
-                    console.log("Acordeon: documentos.map() ... elemento N \n" + elemento)
+                    console.log("Acordeon: documentos.map() ... elemento N \n");
+                    console.log(elemento);
+
                     return (
                         <div className="accordion-item bg-transparent m-0 p-0">
 

@@ -12,7 +12,7 @@ const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) =>
     }
     else {
         terminal = false
-        console.log("AcordeonContenido - Serie de hijos:")
+        console.log("AcordeonContenido: Serie de hijos:")
         console.log(contenido)
     }
 
@@ -28,7 +28,7 @@ const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) =>
                         </Link>
                     </>
                     :
-                    <Acordeon jerarquía={contenido} />
+                    <Acordeon documentos={contenido} />
                 }
 
             </div>

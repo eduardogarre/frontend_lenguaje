@@ -32,19 +32,6 @@ const MenúLateral = () => {
         }
     }, [cargaDocumentos, cargando]);
 
-    if (cargando) {
-        console.log("1 - CARGANDO");
-    }
-    else {
-        console.log("1B - CARGADO");
-    }
-    if (documentos.length === 0) {
-        console.log("2 - documentos.length == 0");
-    }
-    if (documentos.length !== 0) {
-        console.log("2B - documentos.length != 0");
-    }
-
     return (
         <div className="border rounded rounded-3 py-2 px-4" style={{ minWidth: "15rem", background: "#fafafa" }}>
             {(cargando || documentos.length === 0) && (
