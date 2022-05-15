@@ -18,6 +18,8 @@ function Accede() {
     }, []);
 
     const manejaEnvío = async (e) => {
+        setMsjError("");
+        
         e.preventDefault();
         console.log(usuario, clave);
 
@@ -26,30 +28,36 @@ function Accede() {
             clave: clave
         };
 
-        let respuesta = await fetch(servidor + "/api/v1/sesión", {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-            mode: 'cors', // no-cors, cors, same-origin
-            cache: 'no-cache',
-            body: JSON.stringify(datosAcceso),
-        });
-        if (respuesta.status !== 200) {
-            setMsjError("Error, credenciales incorrectas");
-        }
-        else if (respuesta.status === 200) {
-            try {
-                let sesión = await respuesta.json()
-                console.log(sesión);
-                setUsuario("");
-                setClave("");
-                setÉxito(true);
+        let respuesta
+        try {
+            respuesta = await fetch(servidor + "/api/v1/sesión", {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                mode: 'cors', // no-cors, cors, same-origin
+                cache: 'no-cache',
+                body: JSON.stringify(datosAcceso),
+            });
+            if (respuesta.status !== 200) {
+                setMsjError("Error, credenciales incorrectas");
             }
-            catch (err) {
+            else if (respuesta.status === 200) {
+                try {
+                    let sesión = await respuesta.json()
+                    console.log(sesión);
+                    setUsuario("");
+                    setClave("");
+                    setÉxito(true);
+                }
+                catch (err) {
 
+                }
             }
+        }
+        catch (err) {
+            setMsjError("Error, credenciales incorrectas");
         }
     }
 
@@ -94,7 +102,7 @@ function Accede() {
                             />
                         </div>
                         <div className='input-group pe-1' style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", flexWrap: "nowrap" }}>
-                            <div ref={refError} className={"rounded-3 " + (msjError.length > 0 ? "msjerror" : "oculto")} style={{ width: "20rem", height: "3rem" }} aria-live="assertive">{msjError}</div>
+                            <div ref={refError} className={"rounded-3 text-center " + (msjError.length > 0 ? "msjerror" : "oculto")} style={{ width: "20rem", height: "3rem" }} aria-live="assertive">{msjError}</div>
                             <div></div>
                             <Boton texto="Entra" />
                         </div>
