@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import Boton from './../Boton';
+import Boton from '../Boton';
 import { servidor } from '../../Configuración'
 
-function Accede() {
+function Acceso() {
     const refUsuario = useRef();
     const refError = useRef();
 
@@ -114,4 +114,4 @@ function Accede() {
     )
 }
 
-export default Accede
+export default Acceso
