@@ -31,10 +31,10 @@ const Cabecera = () => {
                             <Link className="nav-link" aria-current="page" to="#">Descarga</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/aprende">Aprende</Link>
+                            <Link className="nav-link" to="/documentacion">Documentación</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/documentacion">Documentación</Link>
+                            <Link className="nav-link" to="/edita">Edita</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/accede">Accede</Link>
