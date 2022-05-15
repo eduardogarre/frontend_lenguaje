@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
 import Boton from './Boton';
@@ -26,17 +26,11 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
         console.log("identificador indefinido");
     }
 
-    const obténDocumento = useCallback(async (id) => {
-        return await fetch(servidor + '/api/v1/documento/' + id)
-            .then(respuesta => respuesta.json())
-    })
-
     useEffect(() => {
         if (acción === "edita") {
             fetch(servidor + '/api/v1/documento/' + id)
                 .then(respuesta => respuesta.json())
                 .then(doc => {
-                    título = doc.título;
                     setDocumento(doc);
                     setEstaCargando(false);
                 })

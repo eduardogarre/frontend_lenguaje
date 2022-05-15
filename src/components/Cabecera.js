@@ -40,7 +40,7 @@ const Cabecera = () => {
                             <Link className="nav-link" to="/accede">Accede</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" target="_blank" href="https://github.com/eduardogarre/lenguaje">Proyecto</a>
+                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje">Proyecto</a>
                         </li>
                     </div>
                 </ul>
