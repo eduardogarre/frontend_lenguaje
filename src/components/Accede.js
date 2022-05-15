@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import Boton from './Boton';
+import { servidor } from '../Configuración'
 
 function Accede() {
     const refUsuario = useRef();
@@ -23,6 +24,22 @@ function Accede() {
     const manejaEnvío = async (e) => {
         e.preventDefault();
         console.log(usuario, clave);
+
+        let datosAcceso = {
+            usuario: usuario,
+            clave: clave
+        };
+        
+        fetch(servidor + "/api/v1/sesión", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            mode: 'cors', // no-cors, cors, same-origin
+            cache: 'no-cache',
+            body: JSON.stringify(datosAcceso),
+        })
         setUsuario("");
         setClave("");
         setÉxito(true);
