@@ -5,7 +5,8 @@ import _uniqueId from 'lodash/uniqueId';
 
 const Acordeon = ({ documentos }) => {
 
-    console.log("Acordeon: " + documentos)
+    console.log("Documentos recibidos por Acordeon: ")
+    console.log(documentos)
     const [idAcordeon] = useState(_uniqueId('idAcordeon-'));
     const [idAcordeonContenido] = useState(_uniqueId('idAcordeonContenido-'));
     const [idAcordeonBotón] = useState(_uniqueId('idAcordeonBotón-'));

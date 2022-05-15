@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { servidor } from "../Configuración";
 import Acordeon from "./Acordeon"
-import { servidor } from "../Configuración";
 
 const MenuLateral = () => {
 
@@ -13,8 +12,6 @@ const MenuLateral = () => {
             let respuesta = await fetch(servidor + "/api/v1/documento/0");
             let json = await respuesta.json();
             let hijos = json.hijos;
-            console.log("--- HIJOS ---");
-            console.log(hijos);
             let docus = []
             hijos.forEach(idHijo => {
                 fetch(servidor + "/api/v1/documento/" + idHijo)
@@ -24,21 +21,27 @@ const MenuLateral = () => {
             setDocumentos(docus);
         }
         asincrona();
-    }, [documentos, setDocumentos]);
+    }, [setDocumentos]);
 
     useEffect(() => {
         if (cargando) {
             cargaDocumentos();
             setCargando(false);
         }
-    }, [cargaDocumentos, cargando, setCargando]);
+    }, [cargaDocumentos, cargando]);
 
     console.log("--- DOCUMENTOS ---");
     console.log(documentos);
 
     return (
         <div className="border rounded rounded-3 py-2 px-4" style={{ minWidth: "15rem", background: "#fafafa" }}>
-            <Acordeon documentos={documentos} />
+            {(cargando) && (
+                <center className="p-3"><h1><i className="bi bi-clock-history"></i></h1></center>
+            )}
+
+            {(!cargando) && (
+                <Acordeon documentos={documentos} />
+            )}
         </div>
     )
 }

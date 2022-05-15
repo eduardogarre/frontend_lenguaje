@@ -25,7 +25,6 @@ const Contenido = () => {
             .then(dato => {
                 setDocumento(dato);
                 setEstaCargando(false);
-                console.log(dato);
             })
     }, [id]);
 
