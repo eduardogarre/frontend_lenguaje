@@ -52,7 +52,7 @@ const MenúLateral = () => {
             )}
 
             {(!cargando && documentos.length > 0) && (
-                <Acordeon documentos={documentos} />
+                <Acordeon idRaíz={0} documentos={documentos} />
             )}
         </div>
     )

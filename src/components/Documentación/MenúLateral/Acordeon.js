@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import AcordeonBoton from "./AcordeonBoton"
 import AcordeonContenido from "./AcordeonContenido"
 import _uniqueId from 'lodash/uniqueId';
 
-const Acordeon = ({ documentos }) => {
+const Acordeon = ({ idRaíz, documentos }) => {
 
     const [haRenderizado, renderiza] = useState(false);
     const [idAcordeon] = useState(_uniqueId('idAcordeon-'));
@@ -42,6 +43,7 @@ const Acordeon = ({ documentos }) => {
                     )
                 })
             }
+            <Link to={"/edita/" + idRaíz + "/crea"}>Nuevo</Link>
         </div>
     )
 }

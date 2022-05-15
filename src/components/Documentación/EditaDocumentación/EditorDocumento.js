@@ -139,7 +139,7 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
 }
 
 EditorDocumento.defaultProps = {
-    id: 99999999,
+    id: 999999,
     título: "Título",
     contenido: "<p>Comienza a escribir...</p>",
     acción: "crea",
