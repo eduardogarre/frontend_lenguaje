@@ -35,6 +35,10 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
                     setEstaCargando(false);
                 })
         }
+        else if(acción === "crea")
+        {
+            setEstaCargando(false);
+        }
     }, [acción, id]);
 
     const guardaDocumento = (e) => {
@@ -135,7 +139,7 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
 }
 
 EditorDocumento.defaultProps = {
-    id: -1,
+    id: 99999999,
     título: "Título",
     contenido: "<p>Comienza a escribir...</p>",
     acción: "crea",
