@@ -4,7 +4,7 @@ import React, {} from 'react';
 import EditaArtículo from "./EditaArtículo";
 
 
-const Documentos = () => {
+const EditaDocumentos = () => {
 
     return (
         <Routes>
@@ -23,4 +23,4 @@ const Documentos = () => {
     )
 }
 
-export default Documentos
+export default EditaDocumentos

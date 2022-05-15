@@ -2,7 +2,7 @@ import Cabecera from "./components/Cabecera";
 import Pie from "./components/Pie";
 import Portada from "./components/Portada";
 import Aprende from "./components/Aprende";
-import Documentos from "./components/Documentos";
+import EditaDocumentos from "./components/EditaDocumentos";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Error404 from "./components/Error404";
 import Accede from "./components/Accede";
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<><br /><br /><br /><br /><Portada /><br /><br /></>}></Route>
         <Route path="/documentacion/*" element={<><br /><br /><br /><br /><Aprende /><br /><br /></>}></Route>
-        <Route path="/edita/*" element={<><br /><br /><br /><br /><Documentos /><br /><br /></>}></Route>
+        <Route path="/edita/*" element={<><br /><br /><br /><br /><EditaDocumentos /><br /><br /></>}></Route>
         <Route path="/accede/*" element={<><br /><br /><br /><br /><Accede /><br /><br /></>}></Route>
         <Route path="*" element={<Error404 />}></Route>
       </Routes>
