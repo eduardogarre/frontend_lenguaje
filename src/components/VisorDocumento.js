@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Artículo from "./Articulo"
 import { servidor } from "../Configuración";
 
-const Contenido = () => {
+const VisorDocumento = () => {
 
     const [estáCargando, setEstaCargando] = useState(true);
     const [documento, setDocumento] = useState(null);
@@ -44,4 +44,4 @@ const Contenido = () => {
     }
 }
 
-export default Contenido
+export default VisorDocumento
