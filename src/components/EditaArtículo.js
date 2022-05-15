@@ -15,11 +15,11 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
     const { identificador } = useParams();
 
     if (acción === "crea" && identificador !== undefined) {
-        padre = identificador;
+        padre = parseInt(identificador);
         console.log("Creando un nuevo artículo, con padre: " + padre);
     }
     else if (acción === "edita" && identificador !== undefined) {
-        id = identificador;
+        id = parseInt(identificador);
         console.log("Cambiando un artículo previo, con id: " + id);
     }
     else if (identificador === undefined) {
