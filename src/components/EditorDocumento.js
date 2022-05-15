@@ -6,7 +6,7 @@ import Boton from './Boton';
 import { ejecutaHLJS } from "../herramientas"
 import { servidor } from '../Configuración'
 
-const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
+const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
 
     const editorRef = useRef(null);
     const [estáCargando, setEstaCargando] = useState(true);
@@ -134,7 +134,7 @@ const EditaArtículo = ({ id, título, contenido, acción, padre }) => {
     )
 }
 
-EditaArtículo.defaultProps = {
+EditorDocumento.defaultProps = {
     id: -1,
     título: "Título",
     contenido: "<p>Comienza a escribir...</p>",
@@ -142,7 +142,7 @@ EditaArtículo.defaultProps = {
     padre: 0
 }
 
-EditaArtículo.propTypes = {
+EditorDocumento.propTypes = {
     id: PropTypes.number,
     título: PropTypes.string,
     contenido: PropTypes.string,
@@ -150,4 +150,4 @@ EditaArtículo.propTypes = {
     padre: PropTypes.number
 }
 
-export default EditaArtículo
+export default EditorDocumento

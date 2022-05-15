@@ -1,21 +1,21 @@
 import { Routes, Route } from "react-router-dom";
 import Error404 from "./Error404";
 import React, {} from 'react';
-import EditaArtículo from "./EditaArtículo";
+import EditorDocumento from "./EditorDocumento";
 
 
-const EditaDocumentos = () => {
+const EditaDocumentación = () => {
 
     return (
         <Routes>
             <Route path="/:identificador/crea" element={
                 <>
-                    <EditaArtículo acción="crea" />
+                    <EditorDocumento acción="crea" />
                 </>
             } />
             <Route path="/:identificador/edita" element={
                 <>
-                    <EditaArtículo acción="edita" />
+                    <EditorDocumento acción="edita" />
                 </>
             } />
             <Route path="*" element={<Error404 />}></Route>
@@ -23,4 +23,4 @@ const EditaDocumentos = () => {
     )
 }
 
-export default EditaDocumentos
+export default EditaDocumentación

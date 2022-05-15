@@ -1,47 +1,24 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Documento from "./Documento"
-import { servidor } from "../Configuración";
+import { useRef, useEffect } from "react";
+import {nodeScriptReplace, ejecutaHLJS} from "../herramientas"
 
-const VisorDocumento = () => {
-
-    const [estáCargando, setEstaCargando] = useState(true);
-    const [documento, setDocumento] = useState(null);
-
-    let params = useParams();
-
-    let id = 0
-
-    if (params.idArticulo !== undefined) {
-        id = params.idArticulo
-    }
-    else {
-        id = 1
-    }
+const VisorDocumento = ({ título, texto }) => {
+    
+    const refVisorDocumento = useRef();
 
     useEffect(() => {
-        fetch(servidor + '/api/v1/documento/' + id)
-            .then(respuesta => respuesta.json())
-            .then(dato => {
-                setDocumento(dato);
-                setEstaCargando(false);
-            })
-    }, [id]);
+        refVisorDocumento.current.innerHTML = "";
+        refVisorDocumento.current.innerHTML = texto + ejecutaHLJS;
 
-    if (estáCargando) { // Si está cargando, mostramos un texto que lo indique
-        return (
-            <center className="w-100">
-                <div>
-                    <h1><i className="bi bi-clock-history"></i></h1>
-                </div>
-            </center>
-        );
-    }
-    else {
-        return (
-            <Documento título={documento.título} texto={documento.contenido} />
-        )
-    }
+        nodeScriptReplace(refVisorDocumento.current);
+    }, [texto]);
+
+    return (
+        <div style={{overflowWrap: "break-word"}}>
+            <h3>{título}</h3>
+            <br />
+            <div ref={refVisorDocumento}></div>
+        </div>
+    )
 }
 
 export default VisorDocumento
