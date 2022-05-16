@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Boton from '../Boton';
 import { servidor } from '../../Configuración';
 import { ContextoAcreditado } from '../../contexto/Acreditación';
 
-function Acceso({acredita, desacredita}) {
+function Acceso({ acredita, desacredita }) {
     const refUsuario = useRef();
     const refError = useRef();
 
@@ -19,7 +19,7 @@ function Acceso({acredita, desacredita}) {
 
     const manejaEnvío = async (e) => {
         setMsjError("");
-        
+
         e.preventDefault();
         console.log(usuario, clave);
 
@@ -66,13 +66,7 @@ function Acceso({acredita, desacredita}) {
         <div className="container mw-100 p-3" style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
             <div className='shadow rounded-3 p-4' style={{ width: "31rem", outline: "1px solid #ddd" }}>
                 {éxito ? (
-                    <>
-                        <h1>¡Acceso concedido!</h1>
-                        <br />
-                        <p>
-                            <Link to='/'>Vuelve al Inicio</Link>
-                        </p>
-                    </>
+                    <Navigate to="/" />
                 ) : (
 
                     <form onSubmit={manejaEnvío}>
