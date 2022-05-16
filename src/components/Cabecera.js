@@ -34,14 +34,14 @@ const Cabecera = ({desacredita}) => {
                             <Link className="nav-link" to="/documentacion">Documentación</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje">Proyecto</a>
+                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje"><i class="bi bi-box-arrow-up-right fs-6"> Proyecto</i></a>
                         </li>
                         <li className="nav-item">
                             {(!acreditado) && (
                                 <Link className="nav-link" to="/accede">Accede</Link>
                             )}
                             {(acreditado) && (
-                                <a className="nav-link" href="/" onClick={desacredita}>Cierra</a>
+                                <a className="nav-link text-danger" href="/" onClick={desacredita}>Cierra</a>
                             )}
                         </li>
                     </div>
