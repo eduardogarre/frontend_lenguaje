@@ -54,6 +54,18 @@ const Acordeon = ({ idRaíz }) => {
         <div id={idAcordeon} className="accordion accordion-flush bg-transparent w-100 m-0 p-0">
 
 
+
+            {(idRaíz !== 0) && (
+                <>
+                    <div className='m-0 p-0 d-flex flex-row align-items-center'>
+                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
+                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-6 text-primary"></i></Link>
+                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/borra"}><i className="m-0 p-0 bi bi-file-earmark-x fs-6 text-danger"></i></Link>
+                    </div>
+                    <hr className="separador-horizontal"/>
+                </>
+            )}
+
             {(cargando || documentos.length === 0) && (
                 <center className="p-3"><h1><i className="bi bi-clock-history"></i></h1></center>
             )}
@@ -87,15 +99,11 @@ const Acordeon = ({ idRaíz }) => {
 
             )}
 
-            <div className='mt-1 m-0 p-0 d-flex flex-row align-items-center'>
-                <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
-                {(idRaíz !== 0) && (
-                    <>
-                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-6 text-primary"></i></Link>
-                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/borra"}><i className="m-0 p-0 bi bi-file-earmark-x fs-6 text-danger"></i></Link>
-                    </>
-                )}
-            </div>
+            {(idRaíz === 0) && (
+                <div className='mt-1 m-0 p-0 d-flex flex-row align-items-center'>
+                    <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
+                </div>
+            )}
         </div>
     )
 }
