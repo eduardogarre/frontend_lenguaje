@@ -93,7 +93,7 @@ const Acordeon = ({ idRaíz }) => {
 
                                     {(elemento.hijos.length > 0) && (
                                         <>
-                                            <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} título={elemento.id + " " + elemento.título} />
+                                            <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} título={elemento.título} />
                                             <AcordeonContenido documento={elemento} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} />
                                         </>
                                     )}

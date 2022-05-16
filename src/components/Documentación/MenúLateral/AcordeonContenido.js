@@ -12,12 +12,9 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
 
     if (documento.hijos.length === 0) {
         terminal = true
-        console.log("AcordeonContenido - Texto terminal: " + documento.contenido)
     }
     else {
         terminal = false
-        console.log("AcordeonContenido: Serie de hijos:")
-        console.log(documento.contenido)
     }
 
     return (
@@ -26,7 +23,7 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
 
                 {terminal ?
                     <>
-                        <Link to={`/documentacion/${documento.id}`}><strong>{documento.id + " " + documento.título}</strong></Link>
+                        <Link to={`/documentacion/${documento.id}`}><strong>{documento.título}</strong></Link>
 
                         {(acreditado) && (<div>
                             <Link className='enlace m-0 p-0' to={"/edita/" + documento.id + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
