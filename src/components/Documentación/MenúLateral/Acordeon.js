@@ -62,7 +62,7 @@ const Acordeon = ({ idRaíz }) => {
                         <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-6 text-primary"></i></Link>
                         <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/borra"}><i className="m-0 p-0 bi bi-file-earmark-x fs-6 text-danger"></i></Link>
                     </div>
-                    <hr className="separador-horizontal"/>
+                    <hr className="separador-horizontal" />
                 </>
             )}
 
