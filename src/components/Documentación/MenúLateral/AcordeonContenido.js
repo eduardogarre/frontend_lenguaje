@@ -2,18 +2,18 @@
 import { Link } from 'react-router-dom'
 import Acordeon from "./Acordeon"
 
-const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) => {
+const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
 
-    let terminal = true
+    let terminal = false
 
-    if (typeof contenido === 'string' || contenido instanceof String) {
+    if (documento.hijos.length === 0) {
         terminal = true
-        console.log("AcordeonContenido - Texto terminal: " + contenido)
+        console.log("AcordeonContenido - Texto terminal: " + documento.contenido)
     }
     else {
         terminal = false
         console.log("AcordeonContenido: Serie de hijos:")
-        console.log(contenido)
+        console.log(documento.contenido)
     }
 
     return (
@@ -22,13 +22,13 @@ const AcordeonContenido = ({ contenido, idArtículo, idContenido, idBotón }) =>
 
                 {terminal ?
                     <>
-                        <Link to={`/documentacion/${idArtículo}`}><strong>{contenido}</strong></Link>
-                        <Link className='enlacem-0 p-0' to={"/edita/" + idArtículo + "/crea"}>
+                        <Link to={`/documentacion/${documento.id}`}><strong>{documento.id + " " + documento.título}</strong></Link>
+                        <Link className='enlacem-0 p-0' to={"/edita/" + documento.id + "/crea"}>
                             <i className="m-0 p-0 bi bi-plus fs-3"></i>
                         </Link>
                     </>
                     :
-                    <Acordeon documentos={contenido} />
+                    <Acordeon idRaíz={documento.id} />
                 }
 
             </div>
