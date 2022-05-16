@@ -167,7 +167,7 @@ code, pre code {
   padding: 0.7rem;
 }
 
-.btn:focus {
+.btn:focus, .accordion-button:focus {
   outline: none;
   box-shadow: none;
 }
