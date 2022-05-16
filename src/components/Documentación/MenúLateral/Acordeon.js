@@ -100,7 +100,7 @@ const Acordeon = ({ idRaíz }) => {
             )}
 
             {(idRaíz === 0) && (
-                <div className='mt-1 m-0 p-0 d-flex flex-row align-items-center'>
+                <div className='mt-2 m-0 p-0 d-flex flex-row align-items-center'>
                     <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
                 </div>
             )}
