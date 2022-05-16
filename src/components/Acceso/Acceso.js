@@ -4,7 +4,7 @@ import Boton from '../Boton';
 import { servidor } from '../../Configuración';
 import { ContextoAcreditado } from '../../contexto/Acreditación';
 
-function Acceso({acredita}) {
+function Acceso({acredita, desacredita}) {
     const refUsuario = useRef();
     const refError = useRef();
 
