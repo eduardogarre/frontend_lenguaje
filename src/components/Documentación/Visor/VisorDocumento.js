@@ -1,8 +1,8 @@
 import { useRef, useEffect } from "react";
-import {nodeScriptReplace, ejecutaHLJS} from "../../../herramientas"
+import { nodeScriptReplace, ejecutaHLJS } from "../../../herramientas"
 
 const VisorDocumento = ({ título, texto }) => {
-    
+
     const refVisorDocumento = useRef();
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const VisorDocumento = ({ título, texto }) => {
     }, [texto]);
 
     return (
-        <div style={{overflowWrap: "break-word"}}>
+        <div style={{ overflowWrap: "break-word" }}>
             <h3>{título}</h3>
             <br />
             <div ref={refVisorDocumento}></div>
