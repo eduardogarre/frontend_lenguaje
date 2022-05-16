@@ -86,11 +86,15 @@ const Acordeon = ({ idRaíz }) => {
                 </>
 
             )}
-            <div className='mt-1 m-0 p-0'>
-                <Link className='enlace d-flex flex-row align-items-center m-0 p-0' to={"/edita/" + idRaíz + "/crea"}>
-                    <i className="m-0 p-0 bi bi-plus fs-4"></i>
-                    <span>&nbsp;Nuevo</span>
-                </Link>
+
+            <div className='mt-1 m-0 p-0 d-flex flex-row align-items-center'>
+                <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-5"></i></Link>
+                {(idRaíz !== 0) && (
+                    <>
+                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-5"></i></Link>
+                        <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/borra"}><i className="m-0 p-0 bi bi-file-earmark-x fs-5"></i></Link>
+                    </>
+                )}
             </div>
         </div>
     )

@@ -23,9 +23,11 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
                 {terminal ?
                     <>
                         <Link to={`/documentacion/${documento.id}`}><strong>{documento.id + " " + documento.título}</strong></Link>
-                        <Link className='enlacem-0 p-0' to={"/edita/" + documento.id + "/crea"}>
-                            <i className="m-0 p-0 bi bi-file-earmark-plus fs-5"></i>
-                        </Link>
+                        <div>
+                            <Link className='enlace m-0 p-0' to={"/edita/" + documento.id + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-5"></i></Link>
+                            <Link className='enlace m-0 p-0' to={"/edita/" + documento.id + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-5"></i></Link>
+                            <Link className='enlace m-0 p-0' to={"/edita/" + documento.id + "/borra"}><i className="m-0 p-0 bi bi-file-earmark-x fs-5"></i></Link>
+                        </div>
                     </>
                     :
                     <Acordeon idRaíz={documento.id} />
