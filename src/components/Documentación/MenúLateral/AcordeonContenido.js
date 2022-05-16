@@ -17,14 +17,14 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
     }
 
     return (
-        <div id={idContenido} className={"accordion-collapse bg-transparent m-0 p-0" + (terminal ? " show" : " ms-4 collapse")} aria-labelledby={terminal ? "" : idBotón}>
-            <div className="accordion-body enlace d-flex flex-row align-items-center bg-transparent m-0 p-0 py-1">
+        <div id={idContenido} className={"accordion-collapse bg-transparent m-0 p-0" + (terminal ? " show" : " ms-3 collapse")} aria-labelledby={terminal ? "" : idBotón}>
+            <div className="accordion-body enlace d-flex flex-row align-items-center justify-content-between bg-transparent m-0 p-0 py-1">
 
                 {terminal ?
                     <>
                         <Link to={`/documentacion/${documento.id}`}><strong>{documento.id + " " + documento.título}</strong></Link>
                         <Link className='enlacem-0 p-0' to={"/edita/" + documento.id + "/crea"}>
-                            <i className="m-0 p-0 bi bi-plus fs-3"></i>
+                            <i className="m-0 p-0 bi bi-file-earmark-plus fs-5"></i>
                         </Link>
                     </>
                     :

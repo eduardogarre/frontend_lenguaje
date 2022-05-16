@@ -88,8 +88,8 @@ const Acordeon = ({ idRaíz }) => {
             )}
             <div className='mt-1 m-0 p-0'>
                 <Link className='enlace d-flex flex-row align-items-center m-0 p-0' to={"/edita/" + idRaíz + "/crea"}>
-                    <i className="m-0 p-0 bi bi-plus fs-3"></i>
-                    <strong>Añade</strong>
+                    <i className="m-0 p-0 bi bi-plus fs-4"></i>
+                    <span>&nbsp;Nuevo</span>
                 </Link>
             </div>
         </div>
