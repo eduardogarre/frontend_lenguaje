@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Editor } from '@tinymce/tinymce-react';
 import Boton from '../../Boton';
 import { ejecutaHLJS } from "../../../herramientas"
@@ -13,6 +13,8 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
     const [documento, setDocumento] = useState(null);
 
     const { identificador } = useParams();
+
+    const navega = useNavigate();
 
     if (acción === "crea" && identificador !== undefined) {
         padre = parseInt(identificador);
@@ -35,13 +37,15 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
                     setEstaCargando(false);
                 })
         }
-        else if(acción === "crea")
-        {
+        else if (acción === "crea") {
             setEstaCargando(false);
         }
     }, [acción, id]);
 
-    const guardaDocumento = (e) => {
+    const guardaDocumento = async (e) => {
+
+        e.preventDefault();
+        
         let acción_realizada = (acción === "edita") ? "editado, con Id: " + id : (acción === "crea") ? "creado, con Padre: " + padre : "erróneo";
         console.log("Guardando documento " + acción_realizada);
 
@@ -60,7 +64,7 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
 
         let dato = {
             "id": id,
-            "padre": ((acción === "edita") ? documento.padre :  (acción === "crea") ? padre : "error"),
+            "padre": ((acción === "edita") ? documento.padre : (acción === "crea") ? padre : "error"),
             "título": título.value,
             "contenido": contenidoEditor,
             "hijos": []
@@ -71,18 +75,36 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
         let verboHTTP = (acción === "edita") ? "PATCH" : (acción === "crea") ? "POST" : "";
         const ruta = servidor + '/api/v1/documento' + ((acción === "edita") ? "/" + id : "");
 
-        fetch(ruta, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: verboHTTP,
-            mode: 'cors', // no-cors, cors, same-origin
-            cache: 'no-cache',
-            body: códigoJson,
-        })
+        try {
+            let respuesta = await fetch(ruta, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: verboHTTP,
+                mode: 'cors', // no-cors, cors, same-origin
+                cache: 'no-cache',
+                body: códigoJson,
+            });
+            
+            if(respuesta.ok)
+            {
+                if(acción === "edita")
+                {
+                    navega("/documentacion/" + id);
+                }
+                else if(acción === "crea")
+                {
+                    let json = await respuesta.json();
+                    let nuevoId = json.id;
+                    navega("/documentacion/" + nuevoId);
+                }
+            }
+        }
+        catch(err)
+        {
 
-        e.preventDefault();
+        }
 
         return false;
     }
@@ -131,7 +153,7 @@ const EditorDocumento = ({ id, título, contenido, acción, padre }) => {
                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                         }}
                     />
-                    <Boton texto={((acción === "edita") ? "Guarda cambios" :  (acción === "crea") ? "Crea artículo" : "Error")} onClick={guardaDocumento} />
+                    <Boton texto={((acción === "edita") ? "Guarda cambios" : (acción === "crea") ? "Crea artículo" : "Error")} onClick={guardaDocumento} />
                 </form>
             )}
         </>
