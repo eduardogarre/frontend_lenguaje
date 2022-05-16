@@ -123,17 +123,19 @@ strong {
   color: #103130;
 }
 
-.enlace, .enlace a {
+.enlace,
+.enlace a {
   font-weight: 400;
   color: #103130;
   text-decoration: none;
 }
 
 @media (max-width: 767px) {
-  .presenta-documento{
+  .presenta-documento {
     flex-wrap: wrap;
   }
-  .presenta-documento div{
+
+  .presenta-documento div {
     flex: 0 0 100%;
     text-align: left;
   }
@@ -145,7 +147,8 @@ pre {
   border-radius: 5px;
 }
 
-code, pre code {
+code,
+pre code {
   font-family: "Roboto Mono";
   text-shadow: "4px 4px 8px #ddd";
 }
@@ -163,7 +166,8 @@ code, pre code {
   padding: 0.7rem;
 }
 
-.btn:focus, .accordion-button:focus {
+.btn:focus,
+.accordion-button:focus {
   outline: none;
   box-shadow: none;
 }
@@ -174,4 +178,9 @@ code, pre code {
   background-color: currentColor;
   border: 0;
   opacity: 0.125;
+}
+
+code {
+  color: #01756f;
+  font-size: 16px;
 }
