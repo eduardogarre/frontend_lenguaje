@@ -1,10 +1,10 @@
-import React from 'react';
-import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Boton from '../Boton';
-import { servidor } from '../../Configuración'
+import { servidor } from '../../Configuración';
+import { ContextoAcreditado } from '../../contexto/Acreditación';
 
-function Acceso() {
+function Acceso({acredita}) {
     const refUsuario = useRef();
     const refError = useRef();
 
@@ -50,6 +50,7 @@ function Acceso() {
                     setUsuario("");
                     setClave("");
                     setÉxito(true);
+                    acredita();
                 }
                 catch (err) {
 

@@ -1,14 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { servidor } from "../../../Configuración";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
+import _uniqueId from 'lodash/uniqueId';
+import { servidor } from "../../../Configuración";
 import AcordeonBoton from "./AcordeonBoton"
 import AcordeonContenido from "./AcordeonContenido"
-import _uniqueId from 'lodash/uniqueId';
+import { ContextoAcreditado } from "../../../contexto/Acreditación";
+import { ContextoTema } from "../../../contexto/Tema";
 
 const Acordeon = ({ idRaíz }) => {
 
     const [cargando, setCargando] = useState(true);
     const [documentos, setDocumentos] = useState([]);
+
+    const {acreditado} = useContext(ContextoAcreditado);
 
     const cargaDocumentos = useCallback(async () => {
         async function asincrona() {
@@ -26,7 +30,7 @@ const Acordeon = ({ idRaíz }) => {
                         // en el array documento.hijos del padre
                         if (docus.length === hijos.length) {
                             let docs = hijos.map((idc) => {
-                                let doc = docus.findIndex((d) => idc === d.id );
+                                let doc = docus.findIndex((d) => idc === d.id);
                                 return docus[doc];
                             });
                             setDocumentos(docs);
@@ -62,9 +66,7 @@ const Acordeon = ({ idRaíz }) => {
     return (
         <div id={idAcordeon} className="accordion accordion-flush bg-transparent w-100 m-0 p-0">
 
-
-
-            {(idRaíz !== 0) && (
+            {(acreditado) && (idRaíz !== 0) && (
                 <>
                     <div className='m-0 p-0 d-flex flex-row align-items-center'>
                         <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
@@ -108,7 +110,7 @@ const Acordeon = ({ idRaíz }) => {
 
             )}
 
-            {(idRaíz === 0) && (
+            {(acreditado) && (idRaíz === 0) && (
                 <div className='mt-2 m-0 p-0 d-flex flex-row align-items-center'>
                     <Link className='enlace m-0 p-0' to={"/edita/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
                 </div>
