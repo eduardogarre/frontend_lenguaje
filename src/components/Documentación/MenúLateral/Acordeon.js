@@ -21,7 +21,16 @@ const Acordeon = ({ idRaíz }) => {
                     .then(respuesta => respuesta.json())
                     .then(hijo => {
                         docus = [...docus, hijo]
-                        setDocumentos(docus)
+
+                        // Establezco los documentos, en el orden en el que aparecen
+                        // en el array documento.hijos del padre
+                        if (docus.length === hijos.length) {
+                            let docs = hijos.map((idc) => {
+                                let doc = docus.findIndex((d) => idc === d.id );
+                                return docus[doc];
+                            });
+                            setDocumentos(docs);
+                        }
                     })
             });
         }
