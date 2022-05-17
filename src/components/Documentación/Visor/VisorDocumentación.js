@@ -20,9 +20,9 @@ const VisorDocumentación = ({ cargando }) => {
         id = -1
     }
 
-    const cargaDocumentos = useCallback(async (padre) => {
-        async function asincrona(padre) {
-            let hijos = padre.hijos;
+    const cargaDocumentos = useCallback(async () => {
+        async function asincrona() {
+            let hijos = documento.hijos;
             let docus = [];
             hijos.forEach((idHijo) => {
                 fetch(servidor + "/api/v1/documento/" + idHijo)
@@ -48,20 +48,36 @@ const VisorDocumentación = ({ cargando }) => {
             });
         }
 
-        if (estáCargando || (documento && documento.id === id)) {
-            await asincrona(padre);
-        }
+        await asincrona();
     }, [id, documento, estáCargando, setDocumentos, setEstaCargando]);
 
     useEffect(() => {
 
         let pideDocumento = false;
+        let pideDocumento1 = false;
+        let pideDocumento2 = false;
+        let pideDocumento3 = false;
+
         if (documento && documento.id != id) {
-            pideDocumento = true;
+            pideDocumento1 = true;
+        }
+        if (documento && documento.hijos.length != documentos.length) {
+            console.log("Los hijos no concuerdan");
+            if (documento.hijos.length <= 0) {
+                console.log("Realmente el documento actual no tiene hijos, los borro");
+                setDocumentos([]);
+                pideDocumento2 = false;
+            }
+            else {
+                console.log("Los hijos del documento actual no han cargado, los pido");
+                cargaDocumentos();
+            }
         }
         if (estáCargando && id > -1) {
-            pideDocumento = true;
+            pideDocumento3 = true;
         }
+
+        pideDocumento = pideDocumento1 || pideDocumento2 || pideDocumento3;
 
         console.log("DEPURACIÓN");
         console.log("documento");
@@ -69,13 +85,25 @@ const VisorDocumentación = ({ cargando }) => {
         if (documento) {
             console.log("documento.id");
             console.log(documento.id);
+            console.log("documentos.length");
+            console.log(documentos.length);
+            console.log("documento.hijos.length");
+            console.log(documento.hijos.length);
         }
+        console.log("documentos");
+        console.log(documentos);
         console.log("id");
         console.log(id);
         console.log("estáCargando");
         console.log(estáCargando);
         console.log("pideDocumento");
         console.log(pideDocumento);
+        console.log("pideDocumento1");
+        console.log(pideDocumento1);
+        console.log("pideDocumento2");
+        console.log(pideDocumento2);
+        console.log("pideDocumento3");
+        console.log(pideDocumento3);
 
         if (pideDocumento) {
             fetch(servidor + '/api/v1/documento/' + id)
@@ -83,15 +111,12 @@ const VisorDocumentación = ({ cargando }) => {
                 .then(async (dato) => {
                     setDocumento(dato);
                     console.log("Consigo documento con id: " + dato.id);
-                    if (dato && dato.hijos.length > 0) {
-                        await cargaDocumentos(dato);
-                    }
-                    else if (dato) {
+                    if (dato && dato.hijos.length === 0) {
                         setEstaCargando(false);
                     }
                 })
         }
-    }, [id, estáCargando, cargaDocumentos]);
+    }, [id, documento, documentos, estáCargando, cargaDocumentos]);
 
     if (estáCargando) { // Si está cargando, mostramos un texto que lo indique
         return (
