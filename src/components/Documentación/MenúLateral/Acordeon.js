@@ -7,7 +7,7 @@ import AcordeonContenido from "./AcordeonContenido"
 import { ContextoAcreditado } from "../../../contexto/Acreditación";
 import { ContextoTema } from "../../../contexto/Tema";
 
-const Acordeon = ({ idRaíz }) => {
+const Acordeon = ({ idRaíz, profundidad }) => {
 
     const [cargando, setCargando] = useState(true);
     const [documentos, setDocumentos] = useState([]);
@@ -56,9 +56,6 @@ const Acordeon = ({ idRaíz }) => {
     const [, actualizaEstado] = React.useState();
     const fuerzaRenderizado = React.useCallback(() => actualizaEstado({}), []);
 
-    console.log("Acordeon: Documentos recibidos: ");
-    console.log(documentos);
-
     useEffect(() => {
         fuerzaRenderizado();
     }, [renderiza, haRenderizado, documentos, fuerzaRenderizado]);
@@ -85,21 +82,19 @@ const Acordeon = ({ idRaíz }) => {
                 <>
                     {
                         documentos.map((elemento) => {
-                            console.log("Acordeon: documentos.map() ... elemento N \n");
-                            console.log(elemento);
 
                             return (
                                 <div className="accordion-item bg-transparent m-0 p-0">
 
-                                    {(elemento.hijos.length > 0) && (
-                                        <>
-                                            <AcordeonBoton idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} título={elemento.título} />
-                                            <AcordeonContenido documento={elemento} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} />
-                                        </>
+                                    {(elemento.hijos.length === 0 || profundidad >= 2) && (
+                                        <AcordeonContenido profundidad={profundidad} documento={elemento} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} />
                                     )}
 
-                                    {(elemento.hijos.length === 0) && (
-                                        <AcordeonContenido documento={elemento} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} />
+                                    {(elemento.hijos.length > 0 && profundidad < 2) && (
+                                        <>
+                                            <AcordeonBoton profundidad={profundidad} idPadre={idAcordeon} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} título={elemento.título} />
+                                            <AcordeonContenido profundidad={profundidad} documento={elemento} idContenido={idAcordeonContenido + "-" + elemento.id} idBotón={idAcordeonBotón + "-" + elemento.id} />
+                                        </>
                                     )}
 
                                 </div>

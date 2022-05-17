@@ -1,3 +1,3 @@
-const servidor = ""
+const servidor = "http://localhost/"
 
 export {servidor}

@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 import Acordeon from "./Acordeon"
 import { ContextoAcreditado } from "../../../contexto/Acreditación";
 
-const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
+const AcordeonContenido = ({ documento, idContenido, idBotón, profundidad }) => {
 
     let terminal = false
 
     const {acreditado} = useContext(ContextoAcreditado);
 
-    if (documento.hijos.length === 0) {
+    if (documento.hijos.length === 0 || profundidad === 2) {
         terminal = true
     }
     else {
@@ -23,7 +23,7 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
 
                 {terminal ?
                     <>
-                        <Link to={`/documentacion/${documento.id}`}><strong>{documento.título}</strong></Link>
+                        <Link to={`/documentacion/${documento.id}`}><strong>{profundidad + " " + documento.título}</strong></Link>
 
                         {(acreditado) && (<div>
                             <Link className='enlace m-0 p-0' to={"/edita/" + documento.id + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
@@ -33,7 +33,7 @@ const AcordeonContenido = ({ documento, idContenido, idBotón }) => {
                         )}
                     </>
                     :
-                    <Acordeon idRaíz={documento.id} />
+                    <Acordeon idRaíz={documento.id} profundidad={profundidad + 1} />
                 }
 
             </div>

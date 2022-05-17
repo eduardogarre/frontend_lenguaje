@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Boton from '../Boton';
 import { servidor } from '../../Configuración';
-import { ContextoAcreditado } from '../../contexto/Acreditación';
 
 function Acceso({ acredita, desacredita }) {
     const refUsuario = useRef();

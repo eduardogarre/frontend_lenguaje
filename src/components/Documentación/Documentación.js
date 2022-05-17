@@ -8,15 +8,15 @@ const Documentación = () => {
     return (
         <Routes>
             <Route path="" element={
-                <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem"}}>
+                <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem" }}>
                     <MenúLateral />
-                    <VisorDocumentación />
+                    <VisorDocumentación cargando={true} />
                 </div>
             } >
                 <Route path=":idArticulo" element={
-                    <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem"}}>
+                    <div className="container presenta-documento" style={{ display: "flex", flexDirection: "row", justifyContent: "flex-start", alignItems: "flex-start", columnGap: "3rem", rowGap: "4rem" }}>
                         <MenúLateral />
-                        <VisorDocumentación />
+                        <VisorDocumentación cargando={true} />
                     </div>
                 } />
             </Route>

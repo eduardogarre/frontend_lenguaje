@@ -37,7 +37,7 @@ const Cabecera = ({desacredita}) => {
                             <Link className="nav-link" to="/documentacion_previa">DocuPrevia</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje"><i class="bi bi-box-arrow-up-right fs-6"> Proyecto</i></a>
+                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje"><i className="bi bi-box-arrow-up-right fs-6"> Proyecto</i></a>
                         </li>
                         <li className="nav-item">
                             {(!acreditado) && (

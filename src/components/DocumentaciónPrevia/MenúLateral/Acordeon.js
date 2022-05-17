@@ -56,9 +56,6 @@ const Acordeon = ({ idRaíz }) => {
     const [, actualizaEstado] = React.useState();
     const fuerzaRenderizado = React.useCallback(() => actualizaEstado({}), []);
 
-    console.log("Acordeon: Documentos recibidos: ");
-    console.log(documentos);
-
     useEffect(() => {
         fuerzaRenderizado();
     }, [renderiza, haRenderizado, documentos, fuerzaRenderizado]);
@@ -85,8 +82,6 @@ const Acordeon = ({ idRaíz }) => {
                 <>
                     {
                         documentos.map((elemento) => {
-                            console.log("Acordeon: documentos.map() ... elemento N \n");
-                            console.log(elemento);
 
                             return (
                                 <div className="accordion-item bg-transparent m-0 p-0">
