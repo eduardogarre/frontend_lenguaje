@@ -3,7 +3,7 @@ import Error404 from "../Error404";
 import MenúLateral from "./MenúLateral/MenúLateral"
 import VisorDocumentación from "./Visor/VisorDocumentación"
 
-const Documentación = () => {
+const DocumentaciónPrevia = () => {
 
     return (
         <Routes>
@@ -25,4 +25,4 @@ const Documentación = () => {
     )
 }
 
-export default Documentación
+export default DocumentaciónPrevia

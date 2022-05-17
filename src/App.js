@@ -5,6 +5,8 @@ import Pie from "./components/Pie";
 import Portada from "./components/Portada/Portada";
 import Documentación from "./components/Documentación/Documentación";
 import EditaDocumentación from "./components/Documentación/EditaDocumentación/EditaDocumentación";
+import DocumentaciónPrevia from "./components/DocumentaciónPrevia/DocumentaciónPrevia";
+import EditaDocumentaciónPrevia from "./components/DocumentaciónPrevia/EditaDocumentación/EditaDocumentaciónPrevia";
 import Error404 from "./components/Error404";
 import Acceso from "./components/Acceso/Acceso";
 import { ContextoAcreditado, cierraSesión } from './contexto/Acreditación';
@@ -30,7 +32,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<><br /><br /><br /><br /><Portada /><br /><br /></>}></Route>
                 <Route path="/documentacion/*" element={<><br /><br /><br /><br /><Documentación /><br /><br /></>}></Route>
+                <Route path="/documentacion_previa/*" element={<><br /><br /><br /><br /><DocumentaciónPrevia /><br /><br /></>}></Route>
                 <Route path="/edita/*" element={<><br /><br /><br /><br /><EditaDocumentación /><br /><br /></>}></Route>
+                <Route path="/edita_previa/*" element={<><br /><br /><br /><br /><EditaDocumentaciónPrevia /><br /><br /></>}></Route>
                 <Route path="/accede/*" element={<><br /><br /><br /><br /><Acceso acredita={acredita} desacredita={desacredita} /><br /><br /></>}></Route>
                 <Route path="*" element={<Error404 />}></Route>
               </Routes>
