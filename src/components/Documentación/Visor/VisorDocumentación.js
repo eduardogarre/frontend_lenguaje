@@ -20,6 +20,29 @@ const VisorDocumentación = ({ cargando }) => {
         id = -1
     }
 
+    async function cargaÁrbolDocumentosAsíncrono(padre) {
+        console.log("cargaÁrbolDocumentosAsíncrono");
+        let hijos = padre.hijos;
+        let docus = [];
+        for (let i = 0; i < hijos.length; i++) {
+            let respuesta = await fetch(servidor + "/api/v1/documento/" + hijos[i]);
+            hijos[i] = await respuesta.json();
+            if (hijos[i].hijos.length > 0) {
+                hijos[i] = await cargaÁrbolDocumentosAsíncrono(hijos[i]);
+            }
+            docus = [...docus, hijos[i]];
+        }
+        padre.hijos = docus;
+        return padre;
+    }
+
+    const cargaÁrbolDocumentos = useCallback(async (padre) => {
+        if (padre) {
+            console.log("cargaÁrbolDocumentos");
+            return await cargaÁrbolDocumentosAsíncrono(padre);
+        }
+    });
+
     const cargaDocumentos = useCallback(async () => {
         async function asincrona() {
             let hijos = documento.hijos;
@@ -43,6 +66,9 @@ const VisorDocumentación = ({ cargando }) => {
                             console.log("Documentos hijos conseguidos");
                             console.log(docs);
                             setEstaCargando(false);
+                            
+                            console.log("ÁRBOL DE DOCUMENTOS");
+                            console.log(cargaÁrbolDocumentos(documento));
                         }
                     })
             });
