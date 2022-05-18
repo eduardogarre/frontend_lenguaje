@@ -13,7 +13,7 @@ const Apartado = ({ documento }) => {
 
     return (
         <>
-            <div className="ms-3">
+            <div className="ms-3 cursor-flecha">
                 <a onClick={deslízateHastaElemento}>{documento.título}</a>
             </div>
             <div className="ms-3 mt-2">

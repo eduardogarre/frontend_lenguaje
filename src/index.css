@@ -195,3 +195,7 @@ code {
   height: calc(100vh - 7rem);
   overflow-y: auto;
 }
+
+.cursor-flecha {
+  cursor: default;
+}
