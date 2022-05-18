@@ -107,8 +107,13 @@ const VisorDocumentación = ({ cargando }) => {
     }
     else {
         return (
-            <div className="d-flex flex-column min-vh-100">
-                <VisorDocumento documento={árbol} />
+            <div className="d-flex flex-row min-vh-100">
+                <div className="d-flex flex-column min-vh-100">
+                    <VisorDocumento documento={árbol} />
+                </div>
+                <div className="lista-de-apartados">
+                    hola
+                </div>
             </div>
         )
     }

@@ -184,3 +184,14 @@ code {
   color: #01756f;
   font-size: 16px;
 }
+
+.lista-de-apartados {
+  width: 16rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+  right: 0;
+  z-index: 2;
+  height: calc(100vh - 7rem);
+  overflow-y: auto;
+}
