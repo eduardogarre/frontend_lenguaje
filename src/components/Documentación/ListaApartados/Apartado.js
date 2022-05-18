@@ -13,12 +13,14 @@ const Apartado = ({ documento }) => {
 
     return (
         <>
-            <div>
-                <a onClick={deslízateHastaElemento}>{documento.referencia + " " + documento.título}</a>
+            <div className="ms-3">
+                <a onClick={deslízateHastaElemento}>{documento.título}</a>
             </div>
+            <div className="ms-3 mt-2">
             {(documento) && (
                 documento.hijos.map(hijo => <Apartado documento={hijo} />)
             )}
+            </div>
         </>
     )
 }
