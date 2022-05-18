@@ -1,6 +1,6 @@
 
 const Apartado = ({ documento }) => {
-    console.log("LISTA APARTADOS")
+    console.log("Apartado " + documento.referencia);
 
     const deslízateHastaElemento = () => {
         const id = documento.referencia;
@@ -12,9 +12,14 @@ const Apartado = ({ documento }) => {
     }
 
     return (
-        <div>
-            <a onClick={deslízateHastaElemento}>{documento.referencia + " " + documento.título}</a>
-        </div>
+        <>
+            <div>
+                <a onClick={deslízateHastaElemento}>{documento.referencia + " " + documento.título}</a>
+            </div>
+            {(documento) && (
+                documento.hijos.map(hijo => <Apartado documento={hijo} />)
+            )}
+        </>
     )
 }
 
