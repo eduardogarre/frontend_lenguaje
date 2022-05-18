@@ -17,6 +17,20 @@ const VisorDocumento = ({ documento }) => {
             <h3>{documento.título}</h3>
             <br />
             <div ref={refVisorDocumento}></div>
+
+            {(documento.hijos.length > 0) ?
+                (
+                    documento.hijos.map((elemento) => {
+                        return (
+                            <VisorDocumento documento={elemento} />
+                        )
+                    })
+                )
+                :
+                (
+                    <></>
+                )
+            }
         </div>
     )
 }

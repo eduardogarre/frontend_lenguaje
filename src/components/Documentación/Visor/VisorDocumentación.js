@@ -1,13 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VisorDocumento from "./VisorDocumento";
 import { servidor } from "../../../Configuración";
 
 const VisorDocumentación = ({ cargando }) => {
 
-    const [estáCargando, setEstaCargando] = useState(cargando);
-    const [documento, setDocumento] = useState(null);
-    const [documentos, setDocumentos] = useState([]);
+    const [estáCargando, setEstáCargando] = useState(cargando);
+    const [árbol, setÁrbol] = useState(null);
+    //const [documento, setDocumento] = useState(null);
+    //const [documentos, setDocumentos] = useState([]);
 
     let params = useParams();
 
@@ -20,13 +21,18 @@ const VisorDocumentación = ({ cargando }) => {
         id = -1
     }
 
+    async function cargaDocumento(id) {
+        let respuesta = await fetch(servidor + "/api/v1/documento/" + id);
+        let doc = await respuesta.json();
+        return doc;
+    }
+
     async function cargaÁrbolDocumentosAsíncrono(padre) {
         console.log("cargaÁrbolDocumentosAsíncrono");
         let hijos = padre.hijos;
         let docus = [];
         for (let i = 0; i < hijos.length; i++) {
-            let respuesta = await fetch(servidor + "/api/v1/documento/" + hijos[i]);
-            hijos[i] = await respuesta.json();
+            hijos[i] = await cargaDocumento(hijos[i])
             if (hijos[i].hijos.length > 0) {
                 hijos[i] = await cargaÁrbolDocumentosAsíncrono(hijos[i]);
             }
@@ -36,13 +42,63 @@ const VisorDocumentación = ({ cargando }) => {
         return padre;
     }
 
-    const cargaÁrbolDocumentos = useCallback(async (padre) => {
-        if (padre) {
-            console.log("cargaÁrbolDocumentos");
-            return await cargaÁrbolDocumentosAsíncrono(padre);
+    const cargaÁrbolDocumentos = async (id) => {
+        let doc = await cargaDocumento(id)
+        console.log("cargaÁrbolDocumentos");
+        return await cargaÁrbolDocumentosAsíncrono(doc);
+    };
+
+    useEffect(() => {
+        const asíncrona = async () => {
+            let docRaíz = await cargaÁrbolDocumentos(id);
+            setÁrbol(docRaíz);
+            setEstáCargando(false);
+        }
+
+        let pideDocumento = false;
+        let pideDocumento1 = false;
+        let pideDocumento2 = false;
+
+        if (árbol && árbol.id != id) {
+            pideDocumento1 = true;
+        }
+        if (estáCargando && id > -1) {
+            pideDocumento2 = true;
+        }
+
+        pideDocumento = pideDocumento1 || pideDocumento2;
+
+        console.log("DEPURACIÓN");
+        console.log("árbol");
+        console.log(árbol);
+        if (árbol) {
+            console.log("árbol.id");
+            console.log(árbol.id);
+            console.log("árbol.length");
+            console.log(árbol.length);
+            console.log("árbol.hijos.length");
+            console.log(árbol.hijos.length);
+        }
+        console.log("id");
+        console.log(id);
+        console.log("estáCargando");
+        console.log(estáCargando);
+        console.log("pideDocumento");
+        console.log(pideDocumento);
+        console.log("pideDocumento1");
+        console.log(pideDocumento1);
+        console.log("pideDocumento2");
+        console.log(pideDocumento2);
+
+        if (pideDocumento) {
+
+            if (id >= 0) {
+                asíncrona();
+            }
         }
     });
 
+    /*
     const cargaDocumentos = useCallback(async () => {
         async function asincrona() {
             let hijos = documento.hijos;
@@ -66,9 +122,9 @@ const VisorDocumentación = ({ cargando }) => {
                             console.log("Documentos hijos conseguidos");
                             console.log(docs);
                             setEstaCargando(false);
-                            
+
                             console.log("ÁRBOL DE DOCUMENTOS");
-                            console.log(cargaÁrbolDocumentos(documento));
+                            console.log(cargaÁrbolDocumentos(documento.id));
                         }
                     })
             });
@@ -105,32 +161,32 @@ const VisorDocumentación = ({ cargando }) => {
 
         pideDocumento = pideDocumento1 || pideDocumento2 || pideDocumento3;
 
-        console.log("DEPURACIÓN");
-        console.log("documento");
-        console.log(documento);
-        if (documento) {
-            console.log("documento.id");
-            console.log(documento.id);
-            console.log("documentos.length");
-            console.log(documentos.length);
-            console.log("documento.hijos.length");
-            console.log(documento.hijos.length);
-        }
-        console.log("documentos");
-        console.log(documentos);
-        console.log("id");
-        console.log(id);
-        console.log("estáCargando");
-        console.log(estáCargando);
-        console.log("pideDocumento");
-        console.log(pideDocumento);
-        console.log("pideDocumento1");
-        console.log(pideDocumento1);
-        console.log("pideDocumento2");
-        console.log(pideDocumento2);
-        console.log("pideDocumento3");
-        console.log(pideDocumento3);
-
+        //console.log("DEPURACIÓN");
+        //console.log("documento");
+        //console.log(documento);
+        //if (documento) {
+        //    console.log("documento.id");
+        //    console.log(documento.id);
+        //    console.log("documentos.length");
+        //    console.log(documentos.length);
+        //    console.log("documento.hijos.length");
+        //    console.log(documento.hijos.length);
+        //}
+        //console.log("documentos");
+        //console.log(documentos);
+        //console.log("id");
+        //console.log(id);
+        //console.log("estáCargando");
+        //console.log(estáCargando);
+        //console.log("pideDocumento");
+        //console.log(pideDocumento);
+        //console.log("pideDocumento1");
+        //console.log(pideDocumento1);
+        //console.log("pideDocumento2");
+        //console.log(pideDocumento2);
+        //console.log("pideDocumento3");
+        //console.log(pideDocumento3);
+        
         if (pideDocumento) {
             fetch(servidor + '/api/v1/documento/' + id)
                 .then(respuesta => respuesta.json())
@@ -143,6 +199,7 @@ const VisorDocumentación = ({ cargando }) => {
                 })
         }
     }, [id, documento, documentos, estáCargando, cargaDocumentos]);
+    */
 
     if (estáCargando) { // Si está cargando, mostramos un texto que lo indique
         return (
@@ -156,20 +213,7 @@ const VisorDocumentación = ({ cargando }) => {
     else {
         return (
             <div className="d-flex flex-column min-vh-100">
-                <VisorDocumento documento={documento} />
-                {(documentos.length > 0) ?
-                    (
-                        documentos.map((elemento) => {
-                            return (
-                                <VisorDocumento documento={elemento} />
-                            )
-                        })
-                    )
-                    :
-                    (
-                        <></>
-                    )
-                }
+                <VisorDocumento documento={árbol} />
             </div>
         )
     }
