@@ -108,11 +108,14 @@ const VisorDocumentación = ({ cargando }) => {
     }
     else {
         return (
-            <div className="d-flex flex-row min-vh-100">
+            <div className="d-flex flex-row justify-content-between min-vh-100" style={{flexGrow: 1}}>
                 <div className="d-flex flex-column min-vh-100">
                     <VisorDocumento documento={árbol} />
                 </div>
-                <ListaApartados />
+
+                {(árbol) && (árbol.hijos.length > 0) &&
+                    <ListaApartados documento={árbol} />
+                }
             </div>
         )
     }

@@ -186,7 +186,6 @@ code {
 }
 
 .lista-de-apartados {
-  width: 16rem;
   position: -webkit-sticky;
   position: sticky;
   top: 5rem;
