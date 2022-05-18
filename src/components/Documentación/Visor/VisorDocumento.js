@@ -14,7 +14,7 @@ const VisorDocumento = ({ documento }) => {
 
     return (
         <div style={{ overflowWrap: "break-word" }}>
-            <h3>{documento.título}</h3>
+            <h3 id={documento.referencia}>{documento.título}</h3>
             <br />
             <div ref={refVisorDocumento}></div>
 

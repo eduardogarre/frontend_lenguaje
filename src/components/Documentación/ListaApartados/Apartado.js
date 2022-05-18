@@ -2,7 +2,7 @@
 const Apartado = ({documento}) => {
     console.log("LISTA APARTADOS")
     return (
-        <div>{documento.id + " " + documento.título}</div>
+        <div>{documento.referencia + " " + documento.título}</div>
     )
 }
 
