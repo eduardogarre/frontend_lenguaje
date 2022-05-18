@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import logo from '../img/logo21.png';
 import { ContextoAcreditado } from "../contexto/Acreditación";
 
-const Cabecera = ({desacredita}) => {
+const Cabecera = ({ desacredita }) => {
 
-    const {acreditado} = useContext(ContextoAcreditado);
+    const { acreditado } = useContext(ContextoAcreditado);
 
     const [menuColapsado, setMenuColapsado] = useState(true)
 
@@ -28,17 +28,16 @@ const Cabecera = ({desacredita}) => {
                 <ul id="barraNavEnlaces" className={"mr-auto collapse navbar-collapse justify-content-end m-0 me-2" + (menuColapsado ? " collapse" : " show")}>
                     <div className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="#">Descarga</Link>
+                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje"><i className="bi bi-box-arrow-up-right fs-6"> Proyecto</i></a>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/documentacion">Documentación</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/documentacion_previa">DocuPrevia</Link>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" target="_blank" rel="noreferrer" href="https://github.com/eduardogarre/lenguaje"><i className="bi bi-box-arrow-up-right fs-6"> Proyecto</i></a>
-                        </li>
+                        {(acreditado) && (
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/documentacion_previa">Administra</Link>
+                            </li>
+                        )}
                         <li className="nav-item">
                             {(!acreditado) && (
                                 <Link className="nav-link" to="/accede">Accede</Link>
