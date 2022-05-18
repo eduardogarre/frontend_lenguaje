@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VisorDocumento from "./VisorDocumento";
 import { servidor } from "../../../Configuración";
+import ListaApartados from "../ListaApartados/ListaApartados";
 
 const VisorDocumentación = ({ cargando }) => {
 
@@ -111,9 +112,7 @@ const VisorDocumentación = ({ cargando }) => {
                 <div className="d-flex flex-column min-vh-100">
                     <VisorDocumento documento={árbol} />
                 </div>
-                <div className="lista-de-apartados">
-                    hola
-                </div>
+                <ListaApartados />
             </div>
         )
     }
