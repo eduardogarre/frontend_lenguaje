@@ -31,7 +31,8 @@ const VisorDocumentación = ({ cargando }) => {
         let hijos = padre.hijos;
         let docus = [];
         for (let i = 0; i < hijos.length; i++) {
-            hijos[i] = await cargaDocumento(hijos[i])
+            hijos[i] = await cargaDocumento(hijos[i]);
+            hijos[i].referencia = "apartado-" + hijos[i].id;
             if (hijos[i].hijos.length > 0) {
                 hijos[i] = await cargaÁrbolDocumentosAsíncrono(hijos[i]);
             }
