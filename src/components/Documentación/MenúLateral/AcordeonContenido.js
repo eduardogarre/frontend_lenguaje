@@ -17,7 +17,7 @@ const AcordeonContenido = ({ documento, idContenido, idBotón, profundidad }) =>
             <div className="accordion-body enlace d-flex flex-row align-items-center justify-content-between bg-transparent m-0 p-0 py-1">
 
                 {terminal ?
-                    <Link to={`/documentacion/${documento.id}`}><strong>{profundidad + " " + documento.título}</strong></Link>
+                    <Link to={`/documentacion/${documento.id}`}><strong>{documento.título}</strong></Link>
                     :
                     <Acordeon idRaíz={documento.id} profundidad={profundidad + 1} />
                 }
