@@ -13,7 +13,7 @@ const VisorDocumento = ({ documento, profundidad }) => {
     }, [documento]);
 
     const estiloTítulo = {
-        fontSize: Math.max(16, (30 - profundidad * 4)) + "px",
+        fontSize: Math.max(16, (36 - profundidad * 5)) + "px",
         color: "rgb(" +
         Math.min(190, (profundidad * 40)) + ", " +
         Math.min(190, (profundidad * 40)) + ", " +
@@ -23,7 +23,7 @@ const VisorDocumento = ({ documento, profundidad }) => {
 
     return (
         <div style={{ overflowWrap: "break-word" }}>
-            <div className="h3" style={estiloTítulo} id={documento.referencia}>{documento.título}</div>
+            <div style={estiloTítulo} id={documento.referencia}>{documento.título}</div>
             <div ref={refVisorDocumento}></div>
 
             {(documento.hijos.length > 0) ?
