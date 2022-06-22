@@ -111,7 +111,7 @@ const VisorDocumentación = ({ cargando }) => {
         return (
             <div className="d-flex flex-row justify-content-between min-vh-100" style={{flexGrow: 1}}>
                 <div className="d-flex flex-column min-vh-100">
-                    <VisorDocumento documento={árbol} />
+                    <VisorDocumento documento={árbol} profundidad={0}/>
                 </div>
 
                 {(árbol) && (árbol.hijos.length > 0) &&
