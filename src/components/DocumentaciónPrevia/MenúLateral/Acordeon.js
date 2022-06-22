@@ -12,7 +12,7 @@ const Acordeon = ({ idRaíz }) => {
     const [cargando, setCargando] = useState(true);
     const [documentos, setDocumentos] = useState([]);
 
-    const {acreditado} = useContext(ContextoAcreditado);
+    const { acreditado } = useContext(ContextoAcreditado);
 
     const cargaDocumentos = useCallback(async () => {
         async function asincrona() {
@@ -108,6 +108,7 @@ const Acordeon = ({ idRaíz }) => {
             {(acreditado) && (idRaíz === 0) && (
                 <div className='mt-2 m-0 p-0 d-flex flex-row align-items-center'>
                     <Link className='enlace m-0 p-0' to={"/edita_previa/" + idRaíz + "/crea"}><i className="m-0 p-0 bi bi-file-earmark-plus fs-6 text-success"></i></Link>
+                    <Link className='enlace m-0 p-0' to={"/edita_previa/" + idRaíz + "/edita"}><i className="m-0 p-0 bi bi-file-earmark-text fs-6 text-primary"></i></Link>
                 </div>
             )}
         </div>
