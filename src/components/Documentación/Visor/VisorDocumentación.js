@@ -12,12 +12,14 @@ const VisorDocumentación = ({ cargando }) => {
     let params = useParams();
 
     let id = 0
+    let profundiza = true
 
     if (params.idArticulo !== undefined) {
         id = params.idArticulo
     }
     else {
-        id = -1
+        id = 0
+        profundiza = false
     }
 
     async function cargaDocumento(id) {
@@ -109,12 +111,12 @@ const VisorDocumentación = ({ cargando }) => {
     }
     else {
         return (
-            <div className="d-flex flex-row justify-content-between min-vh-100" style={{flexGrow: 1}}>
+            <div className="d-flex flex-row justify-content-between min-vh-100" style={{ flexGrow: 1 }}>
                 <div className="d-flex flex-column min-vh-100">
-                    <VisorDocumento documento={árbol} profundidad={0}/>
+                    <VisorDocumento documento={árbol} profundidad={0} profundiza={profundiza} />
                 </div>
 
-                {(árbol) && (árbol.hijos.length > 0) &&
+                {(profundiza) && (árbol) && (árbol.hijos.length > 0) &&
                     <ListaApartados documento={árbol} />
                 }
             </div>

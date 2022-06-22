@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { nodeScriptReplace, ejecutaHLJS } from "../../../herramientas"
 
-const VisorDocumento = ({ documento, profundidad }) => {
+const VisorDocumento = ({ documento, profundidad, profundiza }) => {
 
     const refVisorDocumento = useRef();
 
@@ -15,10 +15,10 @@ const VisorDocumento = ({ documento, profundidad }) => {
     const estiloTítulo = {
         fontSize: Math.max(16, (36 - profundidad * 5)) + "px",
         color: "rgb(" +
-        Math.min(190, (profundidad * 40)) + ", " +
-        Math.min(190, (profundidad * 40)) + ", " +
-        Math.min(190, (profundidad * 40)) +
-        ")"
+            Math.min(190, (profundidad * 40)) + ", " +
+            Math.min(190, (profundidad * 40)) + ", " +
+            Math.min(190, (profundidad * 40)) +
+            ")"
     }
 
     return (
@@ -26,12 +26,12 @@ const VisorDocumento = ({ documento, profundidad }) => {
             <div style={estiloTítulo} id={documento.referencia}>{documento.título}</div>
             <div ref={refVisorDocumento}></div>
 
-            {(documento.hijos.length > 0) ?
+            {(profundiza && (documento.hijos.length > 0)) ?
                 (
                     documento.hijos.map((elemento) => {
                         return (
                             <div className={"mt-4" + (profundidad > 4 ? " ms-4" : "")}>
-                                <VisorDocumento documento={elemento} profundidad={profundidad+1} />
+                                <VisorDocumento documento={elemento} profundidad={profundidad + 1} />
                             </div>
                         )
                     })
