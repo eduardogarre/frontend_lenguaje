@@ -31,7 +31,7 @@ const VisorDocumento = ({ documento, profundidad, profundiza }) => {
                     documento.hijos.map((elemento) => {
                         return (
                             <div className={"mt-4" + (profundidad > 4 ? " ms-4" : "")}>
-                                <VisorDocumento documento={elemento} profundidad={profundidad + 1} />
+                                <VisorDocumento documento={elemento} profundidad={profundidad + 1} profundiza={profundiza} />
                             </div>
                         )
                     })
