@@ -23,7 +23,7 @@ público ent inicia()
   devuelve 0;
 }`} />
                 </div>
-                <div className="carousel-item" data-bs-interval="10000">
+                <div className="carousel-item" data-bs-interval="5000">
                     <Código código={`// Factorial de un número natural
 nat factorial(nat número)
 {
