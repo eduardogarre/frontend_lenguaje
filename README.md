@@ -27,7 +27,7 @@ Puedes leer más sobre el despliegue a producción de los proyectos creados con 
 
 ### `npm run eject`
 
-**Aviso: Sólo puedes ejecutar `eject` una vez. Si lo haces, no podrás volver atrás.**
+**Aviso: Sólo podemos ejecutar `eject` una vez. Si lo hacemos, no podremos volver atrás.**
 
 Si necesitáramos modificar la configuración del proceso de construcción, podemos ejecutar `npm run eject` para dejar de depender de `Create React App` y obtener, en su lugar, los archivos de configuración de `Webpack`, `Babel`, `ESLint`, etc..., para modificarlos según nuestras necesidades.
 Tened en cuenta que este paso es irreversible, no se puede deshacer.
