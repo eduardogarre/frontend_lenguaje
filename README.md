@@ -1,6 +1,6 @@
 # ESCAPARATE
 
-Frontend de la página del Lenguaje Ñ
+Frontend de [http://lenguajeñ.com](http://lenguajeñ.com), la página del [Lenguaje Ñ](https://github.com/eduardogarre/lenguaje)
 
 ## Detalles técnicos
 
