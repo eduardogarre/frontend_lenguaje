@@ -29,7 +29,7 @@ público ent inicia()
           <Código código={`// Factorial de un número natural
 nat factorial(nat número)
 {
-  si (número == 1)
+  si (número < 2)
   {
     devuelve 1;
   }
